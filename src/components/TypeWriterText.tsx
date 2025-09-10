@@ -2,9 +2,8 @@ import { useState, useEffect } from 'react';
 
 const phrases = [
   "AI to ROI",
-  "hype to results", 
-  "tools to transformation",
-  "uncertainty to clarity"
+  "uncertainty to clarity",
+  "hype to results"
 ];
 
 export const TypewriterText = () => {

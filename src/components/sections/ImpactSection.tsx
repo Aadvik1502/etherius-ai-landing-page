@@ -1,17 +1,22 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { TrendingDown, Zap, Heart, ArrowRight } from "lucide-react";
+import { TrendingDown, Zap, Heart, DollarSign, ArrowRight } from "lucide-react";
 
 const stats = [
   {
     icon: TrendingDown,
-    percentage: "56%",
+    percentage: "68%",
     description: "reduction in support costs through intelligent automation"
   },
   {
     icon: Zap,
-    percentage: "6x",
+    percentage: "12x",
     description: "faster workflows with AI-powered process redesign"
+  },
+  {
+    icon: DollarSign,
+    percentage: "240%",
+    description: "average ROI in first year"
   },
   {
     icon: Heart,
@@ -38,7 +43,7 @@ export const ImpactSection = () => {
         </div>
 
         {/* Stats Grid */}
-        <div className="grid md:grid-cols-3 gap-8 mb-16">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
           {stats.map((stat, index) => {
             const IconComponent = stat.icon;
             return (

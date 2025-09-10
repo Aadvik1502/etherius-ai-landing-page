@@ -2,68 +2,203 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Etherius AI Design System - Black, White, Neon Yellow Theme */
+
 @layer base {
   :root {
-    --background: 210 40% 2%;
-    --foreground: 0 0% 95%;
-    --card: 210 40% 3%;
-    --card-foreground: 0 0% 95%;
-    --popover: 210 40% 3%;
-    --popover-foreground: 0 0% 95%;
-    --primary: 196 75% 88%;
-    --primary-foreground: 210 40% 8%;
-    --secondary: 215 32% 17%;
-    --secondary-foreground: 0 0% 95%;
-    --muted: 215 32% 17%;
-    --muted-foreground: 215 20% 65%;
-    --accent: 215 32% 17%;
-    --accent-foreground: 0 0% 95%;
-    --destructive: 0 63% 31%;
-    --destructive-foreground: 0 0% 95%;
-    --border: 215 32% 17%;
-    --input: 215 32% 17%;
-    --ring: 196 75% 88%;
-    --radius: 0.5rem;
-    --neon-yellow: 60 100% 50%;
-    --neon-yellow-glow: 60 100% 50%;
-    --dark-surface: 210 40% 4%;
-    --darker-surface: 210 40% 2%;
-    --deep-blue: 215 100% 6%;
+    --background: 0 0% 3%;
+    --foreground: 0 0% 98%;
+
+    --card: 0 0% 7%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 0 0% 7%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 77 97% 66%;
+    --primary-foreground: 0 0% 3%;
+
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 70%;
+
+    --accent: 77 97% 66%;
+    --accent-foreground: 0 0% 3%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 20%;
+    --input: 0 0% 12%;
+    --ring: 77 97% 66%;
+
+    --radius: 0.75rem;
+
+    /* Etherius Custom Tokens */
+    --neon-yellow: 77 97% 66%;
+    --neon-yellow-glow: 77 97% 76%;
+    --dark-surface: 0 0% 7%;
+    --darker-surface: 0 0% 5%;
+    --deep-blue: 220 30% 8%;
+    
+    /* Gradients */
+    --gradient-neon: linear-gradient(135deg, hsl(var(--neon-yellow)), hsl(var(--neon-yellow-glow)));
+    --gradient-dark: linear-gradient(135deg, hsl(var(--background)), hsl(var(--darker-surface)));
+    
+    /* Shadows and Glows */
+    --shadow-neon: 0 0 20px hsl(var(--neon-yellow) / 0.3);
+    --shadow-neon-strong: 0 0 40px hsl(var(--neon-yellow) / 0.5);
+    --shadow-card: 0 10px 30px -10px hsl(0 0% 0% / 0.3);
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
   }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+/* Etherius Custom Components and Animations */
+@layer components {
+  .rotating-text {
+    @apply font-bold text-5xl md:text-7xl bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
+  }
+
+  .neon-glow {
+    box-shadow: var(--shadow-neon);
+  }
+
+  .neon-glow-strong {
+    box-shadow: var(--shadow-neon-strong);
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:scale-105 hover:shadow-2xl;
+    box-shadow: var(--shadow-card);
+  }
+
+  .gradient-border {
+    position: relative;
+    background: hsl(var(--card));
+  }
+
+  .gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    padding: 2px;
+    background: var(--gradient-neon);
+    border-radius: inherit;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: xor;
+  }
+}
+
+@layer utilities {
+  .text-neon {
+    color: hsl(var(--neon-yellow));
+  }
+
+  .bg-neon {
+    background-color: hsl(var(--neon-yellow));
+  }
+
+  .border-neon {
+    border-color: hsl(var(--neon-yellow));
+  }
+}
+
+/* Keyframes for rotating text */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOutUp {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.fade-out-up {
+  animation: fadeOutUp 0.6s ease-out forwards;
 }
 
 @layer base {
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
-    font-feature-settings: "rlig" 1, "calt" 1;
-  }
-}
-
-@layer components {
-  .neon-glow {
-    @apply shadow-[0_0_10px_rgba(255,255,0,0.3)] hover:shadow-[0_0_20px_rgba(255,255,0,0.5)] transition-all duration-300;
-  }
-  
-  .card-hover {
-    @apply hover:transform hover:scale-105 transition-all duration-300 ease-in-out;
-  }
-  
-  .rotating-text {
-    @apply text-5xl md:text-7xl font-bold text-center;
-    background: linear-gradient(135deg, theme(colors.foreground), theme(colors.neon-yellow));
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-  
-  .fade-in-up {
-    @apply opacity-100 translate-y-0;
-  }
-  
-  .fade-out-up {
-    @apply opacity-0 -translate-y-4;
   }
 }

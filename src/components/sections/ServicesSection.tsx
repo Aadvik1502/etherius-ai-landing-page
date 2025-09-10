@@ -1,25 +1,31 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Brain, Zap, Shield, ArrowRight } from "lucide-react";
+import { Bot, MessageSquare, Settings, Lightbulb, ArrowRight } from "lucide-react";
 
 const services = [
   {
-    icon: Brain,
-    title: "AI Strategy & Consulting",
-    description: "Get expert guidance on how AI can transform your business operations and drive growth.",
-    features: ["AI Readiness Assessment", "Strategic Roadmapping", "Technology Evaluation", "ROI Planning"]
+    icon: Bot,
+    title: "AI Agents That Drive Real Results",
+    description: "24/7 intelligent agents that handle customer service, operations, and workflows—reducing costs by up to 60% while boosting efficiency. Get a reliable AI workforce that works tirelessly for your business growth.",
+    features: ["24/7 Customer Service", "Workflow Automation", "Cost Reduction up to 60%", "Scalable AI Workforce"]
   },
   {
-    icon: Zap,
-    title: "Custom AI Solutions",
-    description: "Tailored AI implementations designed specifically for your business needs and processes.",
-    features: ["Process Automation", "Intelligent Analytics", "Custom Models", "System Integration"]
+    icon: MessageSquare,
+    title: "Voice & Chat AI That Converts",
+    description: "Human-like voice agents and chatbots that respond instantly, delight customers, and drive sales. Experience 3x faster response times, 85% customer satisfaction, and dramatically lower support costs.",
+    features: ["3x Faster Response Times", "85% Customer Satisfaction", "Human-like Interactions", "Sales-Driven Conversations"]
   },
   {
-    icon: Shield,
-    title: "AI Implementation & Support",
-    description: "End-to-end deployment and ongoing support to ensure your AI solutions deliver results.",
-    features: ["Deployment & Testing", "Training & Onboarding", "Performance Monitoring", "Continuous Optimization"]
+    icon: Settings,
+    title: "Smart Automations That Scale Your Business",
+    description: "Custom workflow automations that eliminate bottlenecks and grow with your business. Remove manual tasks, connect your systems, and create an organization that runs 5x more efficiently.",
+    features: ["5x Efficiency Gains", "System Integration", "Bottleneck Elimination", "Scalable Workflows"]
+  },
+  {
+    icon: Lightbulb,
+    title: "Strategic AI Solutions & Implementation",
+    description: "End-to-end AI strategy and development tailored to your unique business goals. We design, build, and deploy custom AI systems that deliver guaranteed ROI from day one—not just consulting, complete solutions.",
+    features: ["Custom AI Development", "Guaranteed ROI", "Complete Solutions", "Strategic Implementation"]
   }
 ];
 
@@ -39,7 +45,7 @@ export const ServicesSection = () => {
         </div>
 
         {/* Services Grid */}
-        <div className="grid md:grid-cols-3 gap-8 mb-16">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
           {services.map((service, index) => {
             const IconComponent = service.icon;
             return (
@@ -77,7 +83,7 @@ export const ServicesSection = () => {
             size="lg"
             className="bg-primary text-primary-foreground hover:bg-primary/90 neon-glow px-8 py-6 text-lg font-semibold group"
           >
-            Explore Our Services
+            Book Your Free AI Strategy Session
             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </Button>
         </div>

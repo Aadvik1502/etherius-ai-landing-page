@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import ethLogo from "@/assets/eth_logo.png";
 
 export const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -17,7 +18,13 @@ export const Navigation = () => {
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex items-center">
+          <div className="flex items-center space-x-3">
+            <img 
+              src={ethLogo} 
+              alt="Etherius AI Logo" 
+              className="h-10 w-auto"
+              loading="eager"
+            />
             <h2 className="text-2xl font-bold">
               <span className="text-neon-yellow">Etherius</span>{" "}
               <span className="text-foreground">AI</span>
@@ -38,7 +45,7 @@ export const Navigation = () => {
             <Button 
               className="bg-primary text-primary-foreground hover:bg-primary/90 neon-glow"
             >
-              Get Started
+              Unlock Your AI Advantage
             </Button>
           </div>
 
@@ -72,7 +79,7 @@ export const Navigation = () => {
               className="w-full bg-primary text-primary-foreground hover:bg-primary/90 neon-glow mt-4"
               onClick={() => setIsMenuOpen(false)}
             >
-              Get Started
+              Unlock Your AI Advantage
             </Button>
           </div>
         )}
