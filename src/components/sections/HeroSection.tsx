@@ -1,14 +1,38 @@
 import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
 import { TypewriterText } from "@/components/TypeWriterText";
-import { ArrowRight, Users, Star } from "lucide-react";
+import { ArrowRight, Users, Star, TrendingDown, Zap, DollarSign, Heart } from "lucide-react";
 import headshot1 from "@/assets/customer-headshot-1.jpg";
 import headshot2 from "@/assets/customer-headshot-2.jpg";
 import headshot3 from "@/assets/customer-headshot-3.jpg";
 
+const stats = [
+  {
+    icon: TrendingDown,
+    percentage: "68%",
+    description: "reduction in support costs through intelligent automation"
+  },
+  {
+    icon: Zap,
+    percentage: "12x",
+    description: "faster workflows with AI-powered process redesign"
+  },
+  {
+    icon: DollarSign,
+    percentage: "240%",
+    description: "average ROI in first year"
+  },
+  {
+    icon: Heart,
+    percentage: "30%",
+    description: "increase in customer satisfaction with voice and chat agents"
+  }
+];
+
 export const HeroSection = () => {
   return (
     <section 
-      className="min-h-screen flex flex-col items-center justify-center px-6 relative pt-20"
+      className="min-h-screen flex flex-col items-center justify-center px-6 relative pt-40"
       aria-label="Hero section with company introduction and call-to-action"
     >
       {/* Background gradient overlay */}
@@ -53,7 +77,7 @@ export const HeroSection = () => {
         <TypewriterText />
 
         {/* Sub-text */}
-        <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto mb-12 leading-relaxed">
+        <p className="text-xl md:text-2xl text-white max-w-4xl mx-auto mb-12 leading-relaxed">
           We help businesses adopt AI with clarity and confidence—delivering{" "}
           <span className="text-neon-yellow font-semibold">efficiency</span>,{" "}
           <span className="text-neon-yellow font-semibold">growth</span>, and lasting{" "}
@@ -71,10 +95,38 @@ export const HeroSection = () => {
           </Button>
         </div>
 
-        {/* Trusted by logos */}
-        <div className="flex flex-wrap items-center justify-center gap-8 opacity-50">
-          <div className="text-sm font-medium text-muted-foreground">Trusted by companies across industries</div>
+        {/* Proven Results Section */}
+        <div className="mb-16">
+          <h3 className="text-2xl font-semibold text-foreground mb-12 text-center">
+            Proven Results Across Businesses:
+          </h3>
+          
+          {/* Stats Grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {stats.map((stat, index) => {
+              const IconComponent = stat.icon;
+              return (
+                <Card 
+                  key={index}
+                  className="card-hover bg-deep-blue border-border/20 p-8 text-center group"
+                >
+                  <CardContent className="p-0">
+                    <div className="p-4 bg-gradient-to-br from-primary/20 to-accent/20 rounded-xl w-fit mx-auto mb-6 group-hover:from-primary/30 group-hover:to-accent/30 transition-all duration-300 neon-glow">
+                      <IconComponent className="w-8 h-8 text-primary" />
+                    </div>
+                    <div className="text-4xl md:text-5xl font-bold text-neon-yellow mb-4">
+                      {stat.percentage}
+                    </div>
+                    <p className="text-white leading-relaxed">
+                      {stat.description}
+                    </p>
+                  </CardContent>
+                </Card>
+              );
+            })}
+          </div>
         </div>
+
       </div>
     </section>
   );

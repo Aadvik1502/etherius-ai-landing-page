@@ -31,7 +31,7 @@ export const SocialProofSection = () => {
           <h2 className="text-4xl md:text-5xl font-bold mb-8">
             What Our <span className="text-neon-yellow">Clients Say</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+          <p className="text-xl text-white max-w-4xl mx-auto leading-relaxed">
             Don't just take our word for it. Here's what business leaders say about partnering with Etherius AI.
           </p>
         </div>
@@ -47,14 +47,14 @@ export const SocialProofSection = () => {
                 <div className="mb-6">
                   <Quote className="w-8 h-8 text-primary/60" />
                 </div>
-                <blockquote className="text-muted-foreground leading-relaxed mb-6 italic text-lg">
+                <blockquote className="text-white leading-relaxed mb-6 italic text-lg">
                   "{testimonial.quote}"
                 </blockquote>
                 <div className="border-l-2 border-primary/30 pl-4">
                   <p className="font-semibold text-foreground">
                     {testimonial.author}
                   </p>
-                  <p className="text-sm text-muted-foreground">
+                  <p className="text-sm text-white">
                     {testimonial.title}
                   </p>
                 </div>

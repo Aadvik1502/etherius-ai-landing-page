@@ -37,7 +37,7 @@ export const FAQSection = () => {
           <h2 className="text-4xl md:text-5xl font-bold mb-8">
             Frequently Asked <span className="text-neon-yellow">Questions</span>
           </h2>
-          <p className="text-xl text-muted-foreground leading-relaxed">
+          <p className="text-xl text-white leading-relaxed">
             Get answers to common questions about AI implementation and working with Etherius.
           </p>
         </div>
@@ -54,7 +54,7 @@ export const FAQSection = () => {
                 <AccordionTrigger className="text-left hover:text-neon-yellow transition-colors py-6">
                   <span className="text-lg font-semibold">{faq.question}</span>
                 </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground leading-relaxed pb-6">
+                <AccordionContent className="text-white leading-relaxed pb-6">
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>

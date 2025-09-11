@@ -23,7 +23,7 @@ Rotating text (Typewriter Animation, text being typed out, backspaced and then c
 ### Trust Indicators
 - "68% reduction in support costs through intelligent automation"
 - "12x faster workflows with AI-powered process redesign"
-- "Average 240% ROI in first year"
+- "240% average ROI delivered through solutions in one year"
 - "30% increase in customer satisfaction with voice and chat agents"
 
 ## Value Propositions

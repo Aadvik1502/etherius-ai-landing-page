@@ -38,7 +38,7 @@ export const ContactSection = () => {
           <h2 className="text-4xl md:text-5xl font-bold mb-8">
             Ready to <span className="text-neon-yellow">Transform</span> Your Business?
           </h2>
-          <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed mb-8">
+          <p className="text-xl text-white max-w-4xl mx-auto leading-relaxed mb-8">
             Schedule your free AI strategy session and discover how we can help you achieve measurable results with AI.
           </p>
           <p className="text-lg font-semibold text-foreground">
@@ -197,7 +197,7 @@ export const ContactSection = () => {
               <h3 className="text-2xl font-bold mb-6 text-foreground">
                 Get in Touch
               </h3>
-              <p className="text-muted-foreground leading-relaxed mb-8">
+              <p className="text-white leading-relaxed mb-8">
                 Ready to transform your business with AI? We're here to help. Schedule a free consultation or reach out directly using the contact information below.
               </p>
             </div>
@@ -209,7 +209,7 @@ export const ContactSection = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold text-foreground mb-1">Email</h4>
-                  <p className="text-muted-foreground">hello@etheriusai.com</p>
+                  <p className="text-white">hello@etheriusai.com</p>
                 </div>
               </div>
 
@@ -219,7 +219,7 @@ export const ContactSection = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold text-foreground mb-1">Phone</h4>
-                  <p className="text-muted-foreground">+1 (555) 123-4567</p>
+                  <p className="text-white">+1 (555) 123-4567</p>
                 </div>
               </div>
 
@@ -229,14 +229,14 @@ export const ContactSection = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold text-foreground mb-1">Office</h4>
-                  <p className="text-muted-foreground">Available for virtual consultations worldwide</p>
+                  <p className="text-white">Available for virtual consultations worldwide</p>
                 </div>
               </div>
             </div>
 
             <div className="border-l-2 border-primary/30 pl-6">
               <p className="text-primary font-semibold mb-2">Free 30-Minute Consultation</p>
-              <p className="text-muted-foreground leading-relaxed">
+              <p className="text-white leading-relaxed">
                 During our call, we'll discuss your business goals, assess your AI readiness, and provide actionable insights you can implement immediately.
               </p>
             </div>

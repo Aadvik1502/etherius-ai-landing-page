@@ -35,7 +35,7 @@ export const ProcessSection = () => {
             We partner with you to turn AI into a lasting{" "}
             <span className="text-neon-yellow">competitive advantage</span>
           </h2>
-          <p className="text-xl text-white max-w-4xl mx-auto leading-relaxed">
+          <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
             AI adoption shouldn't be overwhelming. At Etherius, we guide you through a clear, results-driven journey—helping you move from untapped potential to measurable business impact.
           </p>
         </div>
@@ -66,12 +66,12 @@ export const ProcessSection = () => {
                       <h3 className="text-2xl font-bold mb-4 text-foreground">
                         {step.title}
                       </h3>
-                      <p className="text-white leading-relaxed mb-4">
+                      <p className="text-muted-foreground leading-relaxed mb-4">
                         {step.description}
                       </p>
                       <div className="border-l-2 border-primary/30 pl-4">
                         <p className="text-sm font-semibold text-primary">
-                          Outcome: <span className="font-normal text-white">{step.outcome}</span>
+                          Outcome: <span className="font-normal text-muted-foreground">{step.outcome}</span>
                         </p>
                       </div>
                     </div>

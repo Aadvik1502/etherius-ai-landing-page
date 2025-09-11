@@ -38,7 +38,7 @@ export const ServicesSection = () => {
           <h2 className="text-4xl md:text-5xl font-bold mb-8">
             Our <span className="text-neon-yellow">Services</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+          <p className="text-xl text-white max-w-4xl mx-auto leading-relaxed">
             From strategy to implementation, we provide comprehensive AI solutions 
             tailored to your business needs and objectives.
           </p>
@@ -60,10 +60,10 @@ export const ServicesSection = () => {
                   <h3 className="text-xl font-semibold mb-4 text-foreground">
                     {service.title}
                   </h3>
-                  <p className="text-muted-foreground leading-relaxed mb-6">
+                  <p className="text-white leading-relaxed mb-6">
                     {service.description}
                   </p>
-                  <ul className="space-y-2 text-sm text-muted-foreground">
+                  <ul className="space-y-2 text-sm text-white">
                     {service.features.map((feature, idx) => (
                       <li key={idx} className="flex items-center justify-center">
                         <span className="w-1.5 h-1.5 bg-primary rounded-full mr-2"></span>

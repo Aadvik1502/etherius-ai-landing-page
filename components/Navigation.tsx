@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
-import ethLogo from "../../icons/etherius_ai_logo.svg";
 
 export const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -16,15 +15,13 @@ export const Navigation = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border/20">
       <div className="container mx-auto px-6">
-        <div className="flex items-center justify-between h-28">
+        <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center">
-            <img 
-              src={ethLogo} 
-              alt="Etherius AI Logo" 
-              className="h-20 w-auto"
-              loading="eager"
-            />
+            <h2 className="text-2xl font-bold">
+              <span className="text-neon-yellow">Etherius</span>{" "}
+              <span className="text-foreground">AI</span>
+            </h2>
           </div>
 
           {/* Desktop Navigation */}
@@ -33,7 +30,7 @@ export const Navigation = () => {
               <a
                 key={item.name}
                 href={item.href}
-                className="text-white hover:text-neon-yellow transition-colors duration-200 font-medium"
+                className="text-muted-foreground hover:text-neon-yellow transition-colors duration-200 font-medium"
               >
                 {item.name}
               </a>
@@ -41,7 +38,7 @@ export const Navigation = () => {
             <Button 
               className="bg-primary text-primary-foreground hover:bg-primary/90 neon-glow"
             >
-              Book a Discovery Call
+              Get Started
             </Button>
           </div>
 
@@ -65,7 +62,7 @@ export const Navigation = () => {
               <a
                 key={item.name}
                 href={item.href}
-                className="block text-white hover:text-neon-yellow transition-colors duration-200 font-medium"
+                className="block text-muted-foreground hover:text-neon-yellow transition-colors duration-200 font-medium"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {item.name}
@@ -75,7 +72,7 @@ export const Navigation = () => {
               className="w-full bg-primary text-primary-foreground hover:bg-primary/90 neon-glow mt-4"
               onClick={() => setIsMenuOpen(false)}
             >
-              Book a Discovery Call
+              Get Started
             </Button>
           </div>
         )}
