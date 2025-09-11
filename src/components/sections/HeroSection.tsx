@@ -1,9 +1,9 @@
 import { Button } from "@/components/ui/button";
 import { TypewriterText } from "@/components/TypeWriterText";
 import { ArrowRight, Users, Star } from "lucide-react";
-import avatar1 from "@/assets/customer-avatar-1.svg";
-import avatar2 from "@/assets/customer-avatar-2.svg";
-import avatar3 from "@/assets/customer-avatar-3.svg";
+import headshot1 from "@/assets/customer-headshot-1.jpg";
+import headshot2 from "@/assets/customer-headshot-2.jpg";
+import headshot3 from "@/assets/customer-headshot-3.jpg";
 
 export const HeroSection = () => {
   return (
@@ -16,30 +16,36 @@ export const HeroSection = () => {
       
       <div className="container mx-auto text-center z-10 max-w-6xl">
         {/* Customer avatars and testimonial */}
-        <div className="flex items-center justify-center gap-2 mb-8">
+        <div className="flex items-center justify-center gap-1 mb-8">
           <div className="flex -space-x-2">
             <img 
-              src={avatar1} 
-              alt="Customer testimonial avatar 1" 
-              className="w-8 h-8 rounded-full border-2 border-background object-cover"
+              src={headshot1} 
+              alt="Sarah Chen, Marketing Director" 
+              className="w-8 h-8 rounded-full border-2 border-primary/20 object-cover shadow-lg"
               loading="eager"
             />
             <img 
-              src={avatar2} 
-              alt="Customer testimonial avatar 2" 
-              className="w-8 h-8 rounded-full border-2 border-background object-cover"
+              src={headshot2} 
+              alt="Michael Thompson, CEO" 
+              className="w-8 h-8 rounded-full border-2 border-primary/20 object-cover shadow-lg"
               loading="eager"
             />
             <img 
-              src={avatar3} 
-              alt="Customer testimonial avatar 3" 
-              className="w-8 h-8 rounded-full border-2 border-background object-cover"
+              src={headshot3} 
+              alt="David Williams, CTO" 
+              className="w-8 h-8 rounded-full border-2 border-primary/20 object-cover shadow-lg"
               loading="eager"
             />
           </div>
-          <div className="flex items-center gap-1 text-sm text-muted-foreground ml-4">
-            <Star className="w-4 h-4 fill-primary text-primary" />
-            <span>Trusted by 200+ businesses</span>
+          <div className="flex items-center gap-1 text-sm text-white">
+            <div className="flex -space-x-1">
+              <Star className="w-4 h-4 fill-primary text-primary" />
+              <Star className="w-4 h-4 fill-primary text-primary" />
+              <Star className="w-4 h-4 fill-primary text-primary" />
+              <Star className="w-4 h-4 fill-primary text-primary" />
+              <Star className="w-4 h-4 fill-primary text-primary" />
+            </div>
+            <span className="font-medium">Trusted by 25+ businesses</span>
           </div>
         </div>
 

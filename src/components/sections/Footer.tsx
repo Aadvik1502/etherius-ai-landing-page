@@ -1,6 +1,6 @@
 import { Separator } from "@/components/ui/separator";
 import { Linkedin, Twitter } from "lucide-react";
-import ethLogo from "@/assets/eth_logo_big.svg";
+import ethLogo from "@/assets/big_ethai_logo.svg";
 
 export const Footer = () => {
   return (

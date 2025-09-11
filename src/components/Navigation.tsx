@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
-import ethLogo from "@/assets/eth_logo_big.svg";
+import ethLogo from "@/assets/big_ethai_logo.svg";
 
 export const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -22,7 +22,7 @@ export const Navigation = () => {
             <img 
               src={ethLogo} 
               alt="Etherius AI Logo" 
-              className="h-32 w-auto"
+              className="h-20 w-auto"
               loading="eager"
             />
           </div>
