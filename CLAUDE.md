@@ -52,7 +52,7 @@ npm run preview
 ### Typography
 - **Headings:** Inter (Google Fonts) - weights: 400, 500, 600, 700
 - **Body:** System fonts (system-ui, sans-serif)
-- **Logo:** Located at `src/assets/eth_logo.png`
+- **Logo:** Located at `src/assets/eth_logo_big.svg`
 
 ### Design Principles
 - 60/30/10 color rule: 60% dark backgrounds, 30% white text, 10% neon accents

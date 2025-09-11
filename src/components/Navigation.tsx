@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
-import ethLogo from "@/assets/eth_logo.png";
+import ethLogo from "@/assets/eth_logo_big.svg";
 
 export const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -16,19 +16,15 @@ export const Navigation = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border/20">
       <div className="container mx-auto px-6">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-28">
           {/* Logo */}
-          <div className="flex items-center space-x-3">
+          <div className="flex items-center">
             <img 
               src={ethLogo} 
               alt="Etherius AI Logo" 
-              className="h-10 w-auto"
+              className="h-32 w-auto"
               loading="eager"
             />
-            <h2 className="text-2xl font-bold">
-              <span className="text-neon-yellow">Etherius</span>{" "}
-              <span className="text-foreground">AI</span>
-            </h2>
           </div>
 
           {/* Desktop Navigation */}
@@ -45,7 +41,7 @@ export const Navigation = () => {
             <Button 
               className="bg-primary text-primary-foreground hover:bg-primary/90 neon-glow"
             >
-              Unlock Your AI Advantage
+              Book a Discovery Call
             </Button>
           </div>
 
@@ -79,7 +75,7 @@ export const Navigation = () => {
               className="w-full bg-primary text-primary-foreground hover:bg-primary/90 neon-glow mt-4"
               onClick={() => setIsMenuOpen(false)}
             >
-              Unlock Your AI Advantage
+              Book a Discovery Call
             </Button>
           </div>
         )}

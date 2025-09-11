@@ -37,10 +37,26 @@ export const TypewriterText = () => {
     return () => clearTimeout(timeout);
   }, [charIndex, isDeleting, currentPhraseIndex]);
 
+  // Helper function to render the rotating text with "to" in white
+  const renderTextWithWhiteTo = (text: string) => {
+    const parts = text.split(' to ');
+    if (parts.length === 2) {
+      return (
+        <>
+          <span className="text-neon-yellow">{parts[0]}</span>
+          <span className="text-white"> to </span>
+          <span className="text-neon-yellow">{parts[1]}</span>
+        </>
+      );
+    }
+    return <span className="text-neon-yellow">{text}</span>;
+  };
+
   return (
     <div className="h-20 md:h-28 flex items-center justify-center">
       <h1 className="rotating-text">
-        From <span className="text-neon-yellow">{currentText}</span>
+        <span className="text-white">From </span>
+        {renderTextWithWhiteTo(currentText)}
         <span className="animate-pulse text-neon-yellow">|</span>
       </h1>
     </div>

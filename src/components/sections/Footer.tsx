@@ -1,5 +1,6 @@
 import { Separator } from "@/components/ui/separator";
 import { Linkedin, Twitter } from "lucide-react";
+import ethLogo from "@/assets/eth_logo_big.svg";
 
 export const Footer = () => {
   return (
@@ -9,9 +10,12 @@ export const Footer = () => {
         <div className="grid md:grid-cols-2 gap-12 items-center mb-12">
           {/* Brand section */}
           <div>
-            <h3 className="text-3xl font-bold mb-4">
-              <span className="text-neon-yellow">Etherius</span> AI
-            </h3>
+            <img 
+              src={ethLogo} 
+              alt="Etherius AI Logo" 
+              className="h-12 w-auto mb-6"
+              loading="eager"
+            />
             <p className="text-lg text-muted-foreground italic mb-6">
               Strategic AI. Real Results.
             </p>
