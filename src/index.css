@@ -5,6 +5,10 @@
 /* Etherius AI Design System - Black, White, Neon Yellow Theme */
 
 @layer base {
+  html {
+    scroll-padding-top: 120px;
+  }
+
   :root {
     --background: 0 0% 3%;
     --foreground: 0 0% 98%;
@@ -185,12 +189,260 @@
   }
 }
 
+@keyframes problemCardEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes iconPulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes logoScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
 .fade-in-up {
   animation: fadeInUp 0.6s ease-out forwards;
 }
 
 .fade-out-up {
   animation: fadeOutUp 0.6s ease-out forwards;
+}
+
+.problem-card-entrance {
+  opacity: 0;
+  animation: problemCardEntrance 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.icon-pulse {
+  animation: iconPulse 3s ease-in-out infinite;
+}
+
+.animate-logo-scroll {
+  animation: logoScroll 32s linear infinite;
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Responsive logo scroll speeds - Mobile fastest for better visibility */
+@media (max-width: 768px) {
+  .animate-logo-scroll {
+    animation: logoScroll 15s linear infinite;
+    will-change: transform;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
+}
+
+@media (max-width: 480px) {
+  .animate-logo-scroll {
+    animation: logoScroll 10s linear infinite;
+    will-change: transform;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
+}
+
+/* Additional performance optimizations for logo slider */
+.logo-slider-container {
+  contain: layout style paint;
+  transform: translateZ(0);
+}
+
+.logo-item {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+}
+
+/* Logo filter effects for professional appearance */
+.logo-filter {
+  filter: brightness(1.1) contrast(1.1);
+}
+
+.logo-item:hover .logo-filter {
+  filter: brightness(1.3) contrast(1.2) drop-shadow(0 0 8px rgba(206, 252, 85, 0.3));
+}
+
+/* Professional tier-based logo sizing for consistent visual hierarchy */
+.logo-tier1 {
+  height: 80px !important; /* Mobile optimized */
+  width: auto !important;
+  max-width: none !important;
+  max-height: none !important;
+  object-fit: contain;
+}
+
+.logo-tier2 {
+  height: 70px !important; /* Mobile optimized */
+  width: auto !important;
+  max-width: none !important;
+  max-height: none !important;
+  object-fit: contain;
+}
+
+.logo-tier3 {
+  height: 60px !important; /* Mobile optimized */
+  width: auto !important;
+  max-width: none !important;
+  max-height: none !important;
+  object-fit: contain;
+}
+
+/* Desktop logo sizing */
+@media (min-width: 768px) {
+  .logo-tier1 {
+    height: 120px !important;
+  }
+
+  .logo-tier2 {
+    height: 100px !important;
+  }
+
+  .logo-tier3 {
+    height: 80px !important;
+  }
+}
+
+/* Comprehensive logo color fixes for dark background visibility */
+
+/* Force all SVG elements to white by default */
+.logo-filter svg,
+.logo-filter svg * {
+  color: white !important;
+}
+
+/* Target all possible fill attributes and make them white */
+.logo-filter svg path,
+.logo-filter svg text,
+.logo-filter svg circle,
+.logo-filter svg rect,
+.logo-filter svg polygon {
+  fill: white !important;
+}
+
+/* Specific class-based overrides for different logo formats */
+.logo-filter svg .cls-1,
+.logo-filter svg .cls-2 {
+  fill: white !important;
+}
+
+.logo-filter svg .st0 {
+  fill: white !important;
+}
+
+/* Meta logo specific fixes - force text to white */
+.logo-filter svg #Text {
+  fill: white !important;
+}
+
+.logo-filter svg path[id="Text"] {
+  fill: white !important;
+}
+
+/* Claude logo using white version - no overrides needed */
+
+/* Perplexity logo specific fixes */
+.logo-filter svg .cls-2 {
+  fill: white !important;
+}
+
+/* OpenAI logo path fixes */
+.logo-filter svg path[d*="M297.06"] {
+  fill: white !important;
+}
+
+/* Preserve brand accent colors during hover for visual appeal */
+.logo-item:hover .logo-filter svg path[fill="#d97757"],
+.logo-item:hover .logo-filter svg .cls-2[style*="#d97757"] {
+  fill: #d97757 !important;
+}
+
+.logo-item:hover .logo-filter svg path[fill="#EA4B71"] {
+  fill: #EA4B71 !important;
+}
+
+.logo-item:hover .logo-filter svg .st1 {
+  fill: #FF9900 !important;
+}
+
+/* Preserve gradients and strokes that should maintain brand colors */
+.logo-filter svg linearGradient stop {
+  stop-color: white !important;
+}
+
+.logo-filter svg .cls-1[stroke="#20808d"] {
+  stroke: #20808d !important;
+  fill: none !important;
+}
+
+/* Advanced targeting for stubborn SVG elements */
+.logo-filter svg [fill="#0f0f0d"],
+.logo-filter svg [fill="#252F3E"],
+.logo-filter svg [fill="#101330"],
+.logo-filter svg [fill="#192830"],
+.logo-filter svg [fill="#13343b"] {
+  fill: white !important;
+}
+
+/* Ensure text elements are always white */
+.logo-filter svg text,
+.logo-filter svg tspan {
+  fill: white !important;
+  color: white !important;
+}
+
+/* Specific Zapier logo styling for consistent appearance */
+.logo-filter img[src*="zapier"] {
+  filter: brightness(1.1) contrast(1.1);
+}
+
+.logo-item:hover .logo-filter img[src*="zapier"] {
+  filter: brightness(1.3) contrast(1.2) drop-shadow(0 0 8px rgba(206, 252, 85, 0.3));
+}
+
+
+/* Mobile-optimized rotating text styles */
+.rotating-text {
+  font-size: 2.5rem; /* Mobile size */
+  font-weight: 700;
+  line-height: 1.1;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .rotating-text {
+    font-size: 4rem; /* Tablet size */
+  }
+}
+
+@media (min-width: 1024px) {
+  .rotating-text {
+    font-size: 5rem; /* Desktop size */
+  }
+}
+
+@media (min-width: 1280px) {
+  .rotating-text {
+    font-size: 6rem; /* Large desktop size */
+  }
 }
 
 @layer base {

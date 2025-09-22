@@ -16,12 +16,13 @@ export const ImpactSection = () => {
           <p className="text-lg font-semibold text-foreground mb-8">
             Let's explore what AI can do for your business.
           </p>
-          <Button 
+          <Button
             size="lg"
-            className="bg-primary text-primary-foreground hover:bg-primary/90 neon-glow px-8 py-6 text-lg font-semibold group"
+            className="group shadow-2xl transform hover:scale-105 transition-all duration-300 min-h-[48px] bg-gradient-to-r from-neon-yellow to-green-400 text-black hover:from-neon-yellow/90 hover:to-green-400/90 neon-glow hover:shadow-neon-yellow/50 px-8 py-6 text-lg font-semibold"
+            onClick={() => window.open('https://calendly.com/etheriusai/30min', '_blank')}
           >
             Book Your Free Discovery Call
-            <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            <ArrowRight className="ml-3 w-5 h-5 group-hover:translate-x-2 transition-transform duration-300" />
           </Button>
         </div>
       </div>

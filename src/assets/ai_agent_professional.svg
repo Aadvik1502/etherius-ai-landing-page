@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" fill="currentColor">
+  <!-- Modern robot head -->
+  <rect x="18" y="12" width="28" height="24" rx="6" stroke="currentColor" stroke-width="2" fill="none"/>
+
+  <!-- AI Eyes (glowing effect) -->
+  <circle cx="26" cy="22" r="3" fill="currentColor"/>
+  <circle cx="38" cy="22" r="3" fill="currentColor"/>
+
+  <!-- Inner eye glow -->
+  <circle cx="26" cy="22" r="1.5" fill="white" opacity="0.8"/>
+  <circle cx="38" cy="22" r="1.5" fill="white" opacity="0.8"/>
+
+  <!-- Mouth/communication panel -->
+  <rect x="24" y="28" width="16" height="4" rx="2" fill="currentColor"/>
+  <rect x="26" y="29" width="4" height="2" rx="1" fill="white" opacity="0.6"/>
+  <rect x="34" y="29" width="4" height="2" rx="1" fill="white" opacity="0.6"/>
+
+  <!-- Body/chest panel -->
+  <rect x="20" y="36" width="24" height="20" rx="4" stroke="currentColor" stroke-width="2" fill="none"/>
+
+  <!-- Central processing indicator -->
+  <circle cx="32" cy="46" r="4" stroke="currentColor" stroke-width="1.5" fill="none"/>
+  <circle cx="32" cy="46" r="2" fill="currentColor"/>
+
+  <!-- Communication waves/signals -->
+  <path d="M8 20 Q12 16 16 20" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <path d="M6 24 Q12 18 18 24" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+
+  <path d="M48 20 Q52 16 56 20" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <path d="M46 24 Q52 18 58 24" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+
+  <!-- Arms/connection points -->
+  <line x1="18" y1="40" x2="12" y2="40" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+  <line x1="46" y1="40" x2="52" y2="40" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Hand/interaction points -->
+  <circle cx="10" cy="40" r="2" fill="currentColor"/>
+  <circle cx="54" cy="40" r="2" fill="currentColor"/>
+
+  <!-- Network connection indicators -->
+  <line x1="32" y1="56" x2="32" y2="60" stroke="currentColor" stroke-width="2"/>
+  <line x1="28" y1="60" x2="36" y2="60" stroke="currentColor" stroke-width="2"/>
+
+  <!-- Data flow indicators -->
+  <rect x="22" y="38" width="2" height="1" fill="currentColor" opacity="0.7"/>
+  <rect x="26" y="40" width="2" height="1" fill="currentColor" opacity="0.7"/>
+  <rect x="30" y="38" width="2" height="1" fill="currentColor" opacity="0.7"/>
+  <rect x="34" y="40" width="2" height="1" fill="currentColor" opacity="0.7"/>
+  <rect x="38" y="38" width="2" height="1" fill="currentColor" opacity="0.7"/>
+  <rect x="40" y="40" width="2" height="1" fill="currentColor" opacity="0.7"/>
+</svg>

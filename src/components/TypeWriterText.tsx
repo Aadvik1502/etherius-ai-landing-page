@@ -43,13 +43,13 @@ export const TypewriterText = () => {
     if (parts.length === 2) {
       return (
         <>
-          <span className="text-neon-yellow">{parts[0]}</span>
+          <span className="bg-gradient-to-r from-neon-yellow to-green-400 bg-clip-text text-transparent">{parts[0]}</span>
           <span className="text-white"> to </span>
-          <span className="text-neon-yellow">{parts[1]}</span>
+          <span className="bg-gradient-to-r from-neon-yellow to-green-400 bg-clip-text text-transparent">{parts[1]}</span>
         </>
       );
     }
-    return <span className="text-neon-yellow">{text}</span>;
+    return <span className="bg-gradient-to-r from-neon-yellow to-green-400 bg-clip-text text-transparent">{text}</span>;
   };
 
   return (
@@ -57,7 +57,7 @@ export const TypewriterText = () => {
       <h1 className="rotating-text">
         <span className="text-white">From </span>
         {renderTextWithWhiteTo(currentText)}
-        <span className="animate-pulse text-neon-yellow">|</span>
+        <span className="animate-pulse bg-gradient-to-r from-neon-yellow to-green-400 bg-clip-text text-transparent">|</span>
       </h1>
     </div>
   );

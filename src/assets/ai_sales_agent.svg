@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" fill="currentColor">
+  <!-- AI Agent Head/Brain -->
+  <circle cx="32" cy="20" r="12" stroke="currentColor" stroke-width="2" fill="none"/>
+
+  <!-- Circuit pattern inside head -->
+  <path d="M26 16 L30 20 L34 16 M30 20 L30 24 M34 20 L38 16" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <circle cx="30" cy="17" r="1" fill="currentColor"/>
+  <circle cx="34" cy="17" r="1" fill="currentColor"/>
+  <circle cx="32" cy="22" r="1" fill="currentColor"/>
+
+  <!-- Body/Chat Interface -->
+  <rect x="20" y="32" width="24" height="16" rx="4" stroke="currentColor" stroke-width="2" fill="none"/>
+
+  <!-- Chat bubbles representing conversation -->
+  <rect x="23" y="35" width="8" height="3" rx="1.5" fill="currentColor"/>
+  <rect x="33" y="38" width="8" height="3" rx="1.5" fill="currentColor"/>
+  <rect x="23" y="41" width="6" height="3" rx="1.5" fill="currentColor"/>
+
+  <!-- Sales arrows/growth indicators -->
+  <path d="M8 56 L16 48 L12 48 L12 40 L20 40 L20 48 L16 48 L24 56" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M40 56 L48 48 L44 48 L44 40 L52 40 L52 48 L48 48 L56 56" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Connection lines showing AI networking -->
+  <line x1="20" y1="40" x2="8" y2="48" stroke="currentColor" stroke-width="1" opacity="0.6"/>
+  <line x1="44" y1="40" x2="56" y2="48" stroke="currentColor" stroke-width="1" opacity="0.6"/>
+
+  <!-- Dollar signs for sales indication -->
+  <text x="10" y="36" font-family="Arial, sans-serif" font-size="8" fill="currentColor" font-weight="bold">$</text>
+  <text x="50" y="36" font-family="Arial, sans-serif" font-size="8" fill="currentColor" font-weight="bold">$</text>
+
+  <!-- 24/7 indication -->
+  <circle cx="46" cy="14" r="8" stroke="currentColor" stroke-width="1.5" fill="none" opacity="0.8"/>
+  <text x="40" y="18" font-family="Arial, sans-serif" font-size="6" fill="currentColor" font-weight="bold">24/7</text>
+</svg>

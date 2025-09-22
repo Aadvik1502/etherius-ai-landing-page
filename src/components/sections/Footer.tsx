@@ -27,11 +27,11 @@ export const Footer = () => {
               <a href="#services" className="text-white hover:text-neon-yellow transition-colors">
                 Services
               </a>
-              <a href="#about" className="text-white hover:text-neon-yellow transition-colors">
-                About Us
+              <a href="#process" className="text-white hover:text-neon-yellow transition-colors">
+                Process
               </a>
-              <a href="#case-studies" className="text-white hover:text-neon-yellow transition-colors">
-                Case Studies
+              <a href="#mission" className="text-white hover:text-neon-yellow transition-colors">
+                Mission
               </a>
               <a href="#contact" className="text-white hover:text-neon-yellow transition-colors">
                 Contact
@@ -64,10 +64,10 @@ export const Footer = () => {
             © 2025 Etherius AI. All rights reserved.
           </div>
           <div className="flex gap-6">
-            <a href="#privacy" className="hover:text-neon-yellow transition-colors">
+            <a href="/privacy" className="hover:text-neon-yellow transition-colors">
               Privacy Policy
             </a>
-            <a href="#terms" className="hover:text-neon-yellow transition-colors">
+            <a href="/terms" className="hover:text-neon-yellow transition-colors">
               Terms of Service
             </a>
           </div>

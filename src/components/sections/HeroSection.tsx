@@ -1,10 +1,9 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { TypewriterText } from "@/components/TypeWriterText";
+import { LogoSlider } from "@/components/LogoSlider";
 import { ArrowRight, Users, Star, TrendingDown, Zap, Heart } from "lucide-react";
-import headshot1 from "@/assets/customer-headshot-1.jpg";
-import headshot2 from "@/assets/customer-headshot-2.jpg";
-import headshot3 from "@/assets/customer-headshot-3.jpg";
+import { useState, useEffect } from "react";
 
 // Custom SVG icons
 const RoiIcon = ({ className }: { className?: string }) => (
@@ -49,104 +48,233 @@ const stats = [
 ];
 
 export const HeroSection = () => {
+  const [mousePosition, setMousePosition] = useState({ x: 50, y: 50 });
+  const [particlePositions, setParticlePositions] = useState<Array<{
+    id: number;
+    x: number;
+    y: number;
+    vx: number;
+    vy: number;
+    size: number;
+    opacity: number;
+    color: string;
+  }>>([]);
+
+  // Generate initial particles with better distribution - Mobile optimized
+  useEffect(() => {
+    const particles = [];
+    // Reduce particle count on mobile for better performance
+    const isMobile = window.innerWidth < 768;
+    const gridCols = isMobile ? 3 : 5;
+    const gridRows = isMobile ? 3 : 4;
+    const particleCount = isMobile ? 12 : 20;
+
+    for (let i = 0; i < particleCount; i++) {
+      // Calculate grid position for better distribution
+      const gridX = (i % gridCols) / (gridCols - 1);
+      const gridY = Math.floor(i / gridCols) / (gridRows - 1);
+
+      // Add random offset within grid cell for natural look
+      const offsetX = (Math.random() - 0.5) * 15; // ±7.5% offset
+      const offsetY = (Math.random() - 0.5) * 20; // ±10% offset
+
+      particles.push({
+        id: i,
+        x: Math.max(5, Math.min(95, gridX * 100 + offsetX)), // Keep within bounds
+        y: Math.max(5, Math.min(95, gridY * 100 + offsetY)), // Keep within bounds
+        vx: (Math.random() - 0.5) * 0.00209, // Reduced by 5%
+        vy: (Math.random() - 0.5) * 0.00209, // Reduced by 5%
+        size: Math.random() * 4 + 3.5, // Slightly smaller: 3.5-7.5px
+        opacity: Math.random() * 0.15 + 0.35, // Slightly lower opacity: 0.35-0.5
+        color: Math.random() > 0.65 ? 'neon-yellow' : 'green',
+      });
+    }
+
+    setParticlePositions(particles);
+  }, []);
+
+  // Animate particles - Mobile optimized
+  useEffect(() => {
+    const isMobile = window.innerWidth < 768;
+    const animationInterval = setInterval(() => {
+      setParticlePositions(prev => prev.map(particle => {
+        let newX = particle.x + particle.vx * 26.125;
+        let newY = particle.y + particle.vy * 26.125;
+        let newVx = particle.vx;
+        let newVy = particle.vy;
+
+        // Bounce off edges and add some randomness
+        if (newX <= 0 || newX >= 100) {
+          newVx = -particle.vx + (Math.random() - 0.5) * 0.01;
+          newX = Math.max(0, Math.min(100, newX));
+        }
+        if (newY <= 0 || newY >= 100) {
+          newVy = -particle.vy + (Math.random() - 0.5) * 0.01;
+          newY = Math.max(0, Math.min(100, newY));
+        }
+
+        // Occasional direction changes for organic movement (less frequent, more gentle)
+        if (Math.random() < 0.002) {
+          newVx += (Math.random() - 0.5) * 0.003;
+          newVy += (Math.random() - 0.5) * 0.003;
+          // Keep velocity reasonable and controlled
+          newVx = Math.max(-0.003135, Math.min(0.003135, newVx));
+          newVy = Math.max(-0.003135, Math.min(0.003135, newVy));
+        }
+
+        return {
+          ...particle,
+          x: newX,
+          y: newY,
+          vx: newVx,
+          vy: newVy,
+        };
+      }));
+    }, isMobile ? 75 : 50); // 13fps on mobile, 20fps on desktop for performance
+
+    return () => clearInterval(animationInterval);
+  }, [particlePositions.length]); // Add dependency to fix the isMobile scope issue
+
+  // Mouse tracking
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePosition({
+        x: (e.clientX / window.innerWidth) * 100,
+        y: (e.clientY / window.innerHeight) * 100,
+      });
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
+
   return (
-    <section 
-      className="min-h-screen flex flex-col items-center justify-center px-6 relative pt-40"
+    <section
+      className="h-screen flex flex-col items-center justify-center relative overflow-hidden"
       aria-label="Hero section with company introduction and call-to-action"
     >
-      {/* Background gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-darker-surface to-background opacity-50" />
+      {/* SVG Gradient Definition for Stars */}
+      <svg width="0" height="0" className="absolute">
+        <defs>
+          <linearGradient id="star-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="rgba(206, 252, 85, 1)" />
+            <stop offset="50%" stopColor="rgba(206, 252, 85, 1)" />
+            <stop offset="50%" stopColor="rgba(34, 197, 94, 1)" />
+            <stop offset="100%" stopColor="rgba(34, 197, 94, 1)" />
+          </linearGradient>
+        </defs>
+      </svg>
+
+      {/* Premium Dynamic Particles with Proximity Lighting */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {/* Base gradient background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-background via-darker-surface to-background opacity-50" />
+
+        {/* Dynamic Moving Particles */}
+        {particlePositions.map((particle) => {
+          // Calculate distance from cursor to particle
+          const distanceFromCursor = Math.sqrt(
+            Math.pow(mousePosition.x - particle.x, 2) +
+            Math.pow(mousePosition.y - particle.y, 2)
+          );
+
+          // Proximity lighting - only activates within 15% screen distance
+          const isInProximity = distanceFromCursor < 15;
+          const proximityIntensity = Math.max(0, (15 - distanceFromCursor) / 15);
+
+          // Enhanced opacity when near cursor
+          const finalOpacity = particle.opacity + (proximityIntensity * 0.7);
+
+          // Much brighter glow effect when in proximity
+          const glowIntensity = proximityIntensity * 1.2;
+
+          return (
+            <div
+              key={particle.id}
+              className="absolute rounded-full transition-all duration-500 ease-out"
+              style={{
+                left: `${particle.x}%`,
+                top: `${particle.y}%`,
+                width: `${particle.size}px`,
+                height: `${particle.size}px`,
+                background: particle.color === 'neon-yellow'
+                  ? `radial-gradient(circle,
+                      rgba(206, 252, 85, ${finalOpacity}) 0%,
+                      rgba(206, 252, 85, ${finalOpacity * 0.6}) 60%,
+                      transparent 80%
+                    )`
+                  : `radial-gradient(circle,
+                      rgba(34, 197, 94, ${finalOpacity}) 0%,
+                      rgba(34, 197, 94, ${finalOpacity * 0.6}) 60%,
+                      transparent 80%
+                    )`,
+                boxShadow: isInProximity
+                  ? `0 0 ${12 + glowIntensity * 16}px ${
+                      particle.color === 'neon-yellow'
+                        ? `rgba(206, 252, 85, ${Math.min(1, glowIntensity * 1.1)})`
+                        : `rgba(34, 197, 94, ${Math.min(1, glowIntensity * 1.1)})`
+                    }`
+                  : 'none',
+                transform: 'translate(-50%, -50%)',
+              }}
+            />
+          );
+        })}
+
+        {/* Subtle ambient depth elements */}
+        <div className="absolute top-1/4 left-1/6 w-32 h-32 bg-gradient-to-br from-blue-500/8 to-transparent rounded-full blur-3xl opacity-20" />
+        <div className="absolute bottom-1/3 right-1/5 w-24 h-24 bg-gradient-to-tl from-cyan-400/6 to-transparent rounded-full blur-2xl opacity-15" />
+
+        {/* Very subtle texture overlay */}
+        <div className="absolute inset-0 opacity-[0.005]">
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage: `radial-gradient(circle at 1px 1px, rgba(206, 252, 85, 0.3) 1px, transparent 0)`,
+              backgroundSize: '80px 80px',
+            }}
+          />
+        </div>
+      </div>
       
-      <div className="container mx-auto text-center z-10 max-w-6xl">
-        {/* Customer avatars and testimonial */}
-        <div className="flex items-center justify-center gap-1 mb-2">
-          <div className="flex -space-x-2">
-            <img 
-              src={headshot1} 
-              alt="Sarah Chen, Marketing Director" 
-              className="w-8 h-8 rounded-full border-2 border-primary/20 object-cover shadow-lg"
-              loading="eager"
-            />
-            <img 
-              src={headshot2} 
-              alt="Michael Thompson, CEO" 
-              className="w-8 h-8 rounded-full border-2 border-primary/20 object-cover shadow-lg"
-              loading="eager"
-            />
-            <img 
-              src={headshot3} 
-              alt="David Williams, CTO" 
-              className="w-8 h-8 rounded-full border-2 border-primary/20 object-cover shadow-lg"
-              loading="eager"
-            />
-          </div>
-          <div className="flex items-center gap-1 text-sm text-white">
-            <div className="flex -space-x-1">
-              <Star className="w-4 h-4 fill-primary text-primary" />
-              <Star className="w-4 h-4 fill-primary text-primary" />
-              <Star className="w-4 h-4 fill-primary text-primary" />
-              <Star className="w-4 h-4 fill-primary text-primary" />
-              <Star className="w-4 h-4 fill-primary text-primary" />
-            </div>
-            <span className="font-medium">Trusted by 25+ businesses</span>
-          </div>
+      <div className="container mx-auto text-center z-10 max-w-7xl px-6 mt-24">
+
+
+        {/* Main Headline */}
+        <div className="mb-12">
+          <TypewriterText />
         </div>
 
-        {/* Typewriter headline */}
-        <TypewriterText />
+        {/* Value Proposition */}
+        <div className="mb-16">
+          <p className="text-xl md:text-2xl lg:text-3xl text-white/95 max-w-5xl mx-auto leading-relaxed font-medium">
+            We help businesses adopt AI with clarity and confidence—delivering{" "}
+            <span className="bg-gradient-to-r from-neon-yellow to-green-400 bg-clip-text text-transparent font-bold">growth</span>,{" "}
+            <span className="bg-gradient-to-r from-neon-yellow to-green-400 bg-clip-text text-transparent font-bold">efficiency</span>, and lasting{" "}
+            <span className="bg-gradient-to-r from-neon-yellow to-green-400 bg-clip-text text-transparent font-bold">competitive advantage</span>.
+          </p>
+        </div>
 
-        {/* Sub-text */}
-        <p className="text-xl md:text-2xl text-white max-w-4xl mx-auto mb-12 leading-relaxed">
-          We help businesses adopt AI with clarity and confidence—delivering{" "}
-          <span className="text-neon-yellow font-semibold">efficiency</span>,{" "}
-          <span className="text-neon-yellow font-semibold">growth</span>, and lasting{" "}
-          <span className="text-neon-yellow font-semibold">competitive advantage</span>.
-        </p>
+        {/* Powered By Logo Slider */}
+        <div className="mb-8">
+          <LogoSlider />
+        </div>
 
-        {/* CTA Button */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
-          <Button 
-            size="lg" 
-            className="bg-primary text-primary-foreground hover:bg-primary/90 neon-glow px-8 py-6 text-lg font-semibold group"
+        {/* Primary CTA - Enhanced mobile touch target */}
+        <div className="flex items-center justify-center">
+          <Button
+            size="lg"
+            className="group shadow-2xl transform hover:scale-105 transition-all duration-300 min-h-[48px] bg-gradient-to-r from-neon-yellow to-green-400 text-black hover:from-neon-yellow/90 hover:to-green-400/90 neon-glow hover:shadow-neon-yellow/50 px-8 py-6 md:px-10 md:py-7 text-lg md:text-xl font-bold min-w-[200px]"
+            onClick={() => window.open('https://calendly.com/etheriusai/30min', '_blank')}
           >
             Unlock Your AI Advantage
-            <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            <ArrowRight className="ml-3 w-5 h-5 md:w-6 md:h-6 group-hover:translate-x-2 transition-transform duration-300" />
           </Button>
         </div>
 
-        {/* Proven Results Section */}
-        <div className="mb-16">
-          <h3 className="text-2xl font-semibold text-foreground mb-12 text-center">
-            Proven Results Across Businesses:
-          </h3>
-          
-          {/* Stats Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {stats.map((stat, index) => {
-              const IconComponent = stat.icon;
-              return (
-                <Card 
-                  key={index}
-                  className="card-hover bg-deep-blue border-border/20 p-8 text-center group"
-                >
-                  <CardContent className="p-0">
-                    <div className="p-4 bg-gradient-to-br from-primary/20 to-accent/20 rounded-xl w-fit mx-auto mb-6 group-hover:from-primary/30 group-hover:to-accent/30 transition-all duration-300 neon-glow">
-                      <IconComponent className="w-8 h-8 text-primary" />
-                    </div>
-                    <div className="text-4xl md:text-5xl font-bold text-neon-yellow mb-4">
-                      {stat.percentage}
-                    </div>
-                    <p className="text-white leading-relaxed">
-                      {stat.description}
-                    </p>
-                  </CardContent>
-                </Card>
-              );
-            })}
-          </div>
-        </div>
 
       </div>
+
     </section>
   );
 };
