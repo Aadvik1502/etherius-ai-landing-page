@@ -94,6 +94,7 @@ export const corsOptions = {
             'http://localhost:3000',
             'http://localhost:5173',
             'http://localhost:8000', // For local analytics dashboard
+            'http://localhost:8081', // Vite dev server port
             'https://etheriusai.com',
             'https://www.etheriusai.com',
             'https://etheriusai.co', // Current domain
