@@ -1,107 +1,166 @@
 import nodemailer from 'nodemailer';
+import { Resend } from 'resend';
 
 class EmailService {
     constructor() {
         this.transporter = null;
+        this.resend = null;
+        this.emailProvider = process.env.EMAIL_SERVICE || 'gmail';
         this.init();
     }
 
     init() {
         try {
-            // Create nodemailer transporter with explicit SMTP settings
-            const emailConfig = {
-                host: process.env.EMAIL_HOST || 'smtp.gmail.com',
-                port: parseInt(process.env.EMAIL_PORT) || 587,
-                secure: process.env.EMAIL_SECURE === 'true' || false,
-                auth: {
-                    user: process.env.EMAIL_USER,
-                    pass: process.env.EMAIL_PASS
-                },
-                tls: {
-                    rejectUnauthorized: false
-                },
-                connectionTimeout: 60000, // 60 seconds
-                greetingTimeout: 30000,   // 30 seconds
-                socketTimeout: 60000      // 60 seconds
-            };
-
-            // If using Gmail service shorthand
-            if (process.env.EMAIL_SERVICE === 'gmail') {
-                emailConfig.service = 'gmail';
-                delete emailConfig.host;
-                delete emailConfig.port;
-            }
-
-            this.transporter = nodemailer.createTransport(emailConfig);
-
-            // Verify connection configuration
-            this.transporter.verify((error, success) => {
-                if (error) {
-                    console.warn('⚠️ Email service verification failed:', error.message);
-                    console.log('Email notifications will be disabled until configured properly');
+            if (this.emailProvider === 'resend') {
+                // Initialize Resend
+                if (process.env.RESEND_API_KEY) {
+                    this.resend = new Resend(process.env.RESEND_API_KEY);
+                    console.log('✅ Resend email service initialized');
                 } else {
-                    console.log('✅ Email service ready');
+                    console.warn('⚠️ RESEND_API_KEY not provided');
                 }
-            });
+            } else {
+                // Create nodemailer transporter with explicit SMTP settings
+                const emailConfig = {
+                    host: process.env.EMAIL_HOST || 'smtp.gmail.com',
+                    port: parseInt(process.env.EMAIL_PORT) || 587,
+                    secure: process.env.EMAIL_SECURE === 'true' || false,
+                    auth: {
+                        user: process.env.EMAIL_USER,
+                        pass: process.env.EMAIL_PASS
+                    },
+                    tls: {
+                        rejectUnauthorized: false
+                    },
+                    connectionTimeout: 60000, // 60 seconds
+                    greetingTimeout: 30000,   // 30 seconds
+                    socketTimeout: 60000      // 60 seconds
+                };
+
+                // If using Gmail service shorthand
+                if (process.env.EMAIL_SERVICE === 'gmail') {
+                    emailConfig.service = 'gmail';
+                    delete emailConfig.host;
+                    delete emailConfig.port;
+                }
+
+                this.transporter = nodemailer.createTransport(emailConfig);
+
+                // Verify connection configuration
+                this.transporter.verify((error, success) => {
+                    if (error) {
+                        console.warn('⚠️ Email service verification failed:', error.message);
+                        console.log('Email notifications will be disabled until configured properly');
+                    } else {
+                        console.log('✅ Email service ready');
+                    }
+                });
+            }
         } catch (error) {
             console.error('Email service initialization error:', error);
         }
     }
 
     async sendLeadNotification(leadData) {
-        if (!this.transporter) {
-            console.warn('Email service not configured');
-            return { success: false, error: 'Email service not configured' };
-        }
+        if (this.emailProvider === 'resend') {
+            return this.sendResendEmail(leadData, 'notification');
+        } else {
+            if (!this.transporter) {
+                console.warn('Email service not configured');
+                return { success: false, error: 'Email service not configured' };
+            }
 
-        try {
-            const subject = `🚀 New Lead: ${leadData.fullName} from ${leadData.companyName}`;
-            const htmlBody = this.generateLeadNotificationHTML(leadData);
-            const textBody = this.generateLeadNotificationText(leadData);
+            try {
+                const subject = `🚀 New Lead: ${leadData.fullName} from ${leadData.companyName}`;
+                const htmlBody = this.generateLeadNotificationHTML(leadData);
+                const textBody = this.generateLeadNotificationText(leadData);
 
-            const mailOptions = {
-                from: process.env.EMAIL_USER,
-                to: process.env.EMAIL_TO || 'hello@etheriusai.com',
-                subject: subject,
-                text: textBody,
-                html: htmlBody
-            };
+                const mailOptions = {
+                    from: process.env.EMAIL_USER,
+                    to: process.env.EMAIL_TO || 'hello@etheriusai.com',
+                    subject: subject,
+                    text: textBody,
+                    html: htmlBody
+                };
 
-            const result = await this.transporter.sendMail(mailOptions);
-            console.log('✅ Lead notification sent:', result.messageId);
+                const result = await this.transporter.sendMail(mailOptions);
+                console.log('✅ Lead notification sent:', result.messageId);
 
-            return { success: true, messageId: result.messageId };
-        } catch (error) {
-            console.error('❌ Failed to send lead notification:', error.message);
-            return { success: false, error: error.message };
+                return { success: true, messageId: result.messageId };
+            } catch (error) {
+                console.error('❌ Failed to send lead notification:', error.message);
+                return { success: false, error: error.message };
+            }
         }
     }
 
     async sendAutoReply(leadData) {
-        if (!this.transporter) {
-            console.warn('Email service not configured');
-            return { success: false, error: 'Email service not configured' };
+        if (this.emailProvider === 'resend') {
+            return this.sendResendEmail(leadData, 'reply');
+        } else {
+            if (!this.transporter) {
+                console.warn('Email service not configured');
+                return { success: false, error: 'Email service not configured' };
+            }
+
+            try {
+                const subject = `Thank you for your interest in Etherius AI, ${leadData.fullName}!`;
+                const htmlBody = this.generateAutoReplyHTML(leadData);
+                const textBody = this.generateAutoReplyText(leadData);
+
+                const mailOptions = {
+                    from: process.env.EMAIL_USER,
+                    to: leadData.email,
+                    subject: subject,
+                    text: textBody,
+                    html: htmlBody
+                };
+
+                const result = await this.transporter.sendMail(mailOptions);
+                console.log('✅ Auto-reply sent to:', leadData.email);
+
+                return { success: true, messageId: result.messageId };
+            } catch (error) {
+                console.error('❌ Failed to send auto-reply:', error.message);
+                return { success: false, error: error.message };
+            }
+        }
+    }
+
+    async sendResendEmail(leadData, type) {
+        if (!this.resend) {
+            console.warn('Resend not configured');
+            return { success: false, error: 'Resend not configured' };
         }
 
         try {
-            const subject = `Thank you for your interest in Etherius AI, ${leadData.fullName}!`;
-            const htmlBody = this.generateAutoReplyHTML(leadData);
-            const textBody = this.generateAutoReplyText(leadData);
+            let emailData;
+            const fromEmail = process.env.EMAIL_FROM || 'onboarding@resend.dev';
 
-            const mailOptions = {
-                from: process.env.EMAIL_USER,
-                to: leadData.email,
-                subject: subject,
-                text: textBody,
-                html: htmlBody
-            };
+            if (type === 'notification') {
+                emailData = {
+                    from: fromEmail,
+                    to: process.env.EMAIL_TO || 'etheriusai@gmail.com',
+                    subject: `🚀 New Lead: ${leadData.fullName} from ${leadData.companyName}`,
+                    html: this.generateLeadNotificationHTML(leadData),
+                    text: this.generateLeadNotificationText(leadData)
+                };
+            } else if (type === 'reply') {
+                emailData = {
+                    from: fromEmail,
+                    to: leadData.email,
+                    subject: `Thank you for your interest in Etherius AI, ${leadData.fullName}!`,
+                    html: this.generateAutoReplyHTML(leadData),
+                    text: this.generateAutoReplyText(leadData)
+                };
+            }
 
-            const result = await this.transporter.sendMail(mailOptions);
-            console.log('✅ Auto-reply sent to:', leadData.email);
+            const result = await this.resend.emails.send(emailData);
+            console.log(`✅ Resend ${type} email sent:`, result.id);
 
-            return { success: true, messageId: result.messageId };
+            return { success: true, messageId: result.id, id: result.id };
         } catch (error) {
-            console.error('❌ Failed to send auto-reply:', error.message);
+            console.error(`❌ Failed to send ${type} email via Resend:`, error.message);
             return { success: false, error: error.message };
         }
     }
