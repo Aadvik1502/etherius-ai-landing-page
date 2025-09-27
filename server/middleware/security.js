@@ -96,7 +96,8 @@ export const corsOptions = {
             'http://localhost:8000', // For local analytics dashboard
             'https://etheriusai.com',
             'https://www.etheriusai.com',
-            'https://etheriusai.co' // Current domain
+            'https://etheriusai.co', // Current domain
+            'https://www.etheriusai.co' // Current domain with www
         ];
 
         // Add production domains from environment
