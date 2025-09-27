@@ -4,9 +4,17 @@
 
 /* Etherius AI Design System - Black, White, Neon Yellow Theme */
 
+/* Font optimization for performance */
+@font-face {
+  font-family: 'Inter';
+  font-display: swap;
+  src: url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+}
+
 @layer base {
   html {
     scroll-padding-top: 120px;
+    font-display: swap;
   }
 
   :root {
@@ -272,9 +280,11 @@
   transform: translateZ(0);
 }
 
-/* Logo filter effects for professional appearance */
+/* Optimized logo filter effects for performance */
 .logo-filter {
   filter: brightness(1.1) contrast(1.1);
+  will-change: filter;
+  transition: filter 0.3s ease;
 }
 
 .logo-item:hover .logo-filter {

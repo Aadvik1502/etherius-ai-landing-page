@@ -22,9 +22,12 @@ export const Navigation = () => {
             <a href="#" aria-label="Etherius AI Home">
               <img
                 src={ethLogo}
-                alt="Etherius AI Logo"
+                alt="Etherius AI Logo - AI Consulting Firm"
                 className="h-12 md:h-20 w-auto object-contain"
+                width="160"
+                height="80"
                 loading="eager"
+                fetchpriority="high"
               />
             </a>
           </div>

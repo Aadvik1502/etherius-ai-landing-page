@@ -38,13 +38,17 @@ export const LogoSlider = () => {
               key={`${company.name}-${index}`}
               className="logo-item flex-shrink-0 mx-0.5 sm:mx-1 md:mx-2 lg:mx-4 flex items-center justify-center group cursor-pointer transition-all duration-300"
             >
-              {/* Logo Image Container - Mobile responsive sizing */}
+              {/* Logo Image Container - Mobile responsive sizing with explicit dimensions */}
               <div className="w-24 sm:w-28 md:w-40 lg:w-50 h-12 sm:h-14 md:h-20 lg:h-24 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
                 <img
                   src={company.logo}
-                  alt={`${company.name} logo`}
+                  alt={`${company.name} AI technology partner logo`}
                   className={`logo-${company.tier} opacity-70 group-hover:opacity-100 transition-all duration-300 logo-filter`}
+                  width={company.tier === 'tier1' ? '120' : company.tier === 'tier2' ? '100' : '80'}
+                  height={company.tier === 'tier1' ? '80' : company.tier === 'tier2' ? '70' : '60'}
                   loading="lazy"
+                  decoding="async"
+                  fetchpriority={index < 4 ? 'high' : 'low'}
                 />
               </div>
             </div>
