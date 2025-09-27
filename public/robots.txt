@@ -1,14 +1,61 @@
+# Robots.txt for Etherius AI - Strategic AI Solutions
+# Updated: January 2025
+
+# Allow all major search engine crawlers
 User-agent: Googlebot
 Allow: /
+Crawl-delay: 1
 
 User-agent: Bingbot
 Allow: /
+Crawl-delay: 1
 
+User-agent: Slurp
+Allow: /
+Crawl-delay: 2
+
+User-agent: DuckDuckBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Baiduspider
+Allow: /
+Crawl-delay: 2
+
+User-agent: YandexBot
+Allow: /
+Crawl-delay: 2
+
+# Social media crawlers
 User-agent: Twitterbot
 Allow: /
 
 User-agent: facebookexternalhit
 Allow: /
 
+User-agent: LinkedInBot
+Allow: /
+
+# General crawler rules
 User-agent: *
 Allow: /
+Crawl-delay: 1
+
+# Disallow common non-public directories
+Disallow: /admin/
+Disallow: /private/
+Disallow: /_/
+Disallow: /temp/
+Disallow: /tmp/
+Disallow: /.well-known/
+Disallow: /api/private/
+Disallow: /logs/
+Disallow: *.pdf$
+
+# Allow important business pages
+Allow: /privacy
+Allow: /terms
+Allow: /
+
+# Sitemap location
+Sitemap: https://www.etheriusai.com/sitemap.xml

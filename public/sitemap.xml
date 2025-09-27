@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0">
+
+    <!-- Homepage - Main landing page with AI consulting services -->
+    <url>
+        <loc>https://www.etheriusai.com/</loc>
+        <lastmod>2025-01-27</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+        <mobile:mobile/>
+
+        <!-- Key images for SEO -->
+        <image:image>
+            <image:loc>https://www.etheriusai.com/etherius-ai-logo.png</image:loc>
+            <image:title>Etherius AI - Strategic AI Solutions</image:title>
+            <image:caption>Etherius AI company logo for strategic AI consulting services</image:caption>
+        </image:image>
+
+        <image:image>
+            <image:loc>https://www.etheriusai.com/og-image.jpg</image:loc>
+            <image:title>AI Consulting Services That Deliver Results</image:title>
+            <image:caption>Strategic AI consulting for business transformation and growth</image:caption>
+        </image:image>
+
+        <!-- Service icons -->
+        <image:image>
+            <image:loc>https://www.etheriusai.com/src/assets/ai_sales_agent.svg</image:loc>
+            <image:title>AI Sales Agent Solutions</image:title>
+            <image:caption>AI agents that drive real business results</image:caption>
+        </image:image>
+
+        <image:image>
+            <image:loc>https://www.etheriusai.com/src/assets/revenue_growth.svg</image:loc>
+            <image:title>Revenue Growth Through AI</image:title>
+            <image:caption>AI-powered revenue optimization and business growth</image:caption>
+        </image:image>
+
+        <image:image>
+            <image:loc>https://www.etheriusai.com/src/assets/cost_optimization.svg</image:loc>
+            <image:title>AI Cost Optimization</image:title>
+            <image:caption>Intelligent automation for cost reduction and efficiency</image:caption>
+        </image:image>
+
+        <image:image>
+            <image:loc>https://www.etheriusai.com/src/assets/customer_experience.svg</image:loc>
+            <image:title>AI Customer Experience Enhancement</image:title>
+            <image:caption>Voice and chat AI for improved customer satisfaction</image:caption>
+        </image:image>
+    </url>
+
+    <!-- Privacy Policy -->
+    <url>
+        <loc>https://www.etheriusai.com/privacy</loc>
+        <lastmod>2025-01-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.2</priority>
+        <mobile:mobile/>
+    </url>
+
+    <!-- Terms of Service -->
+    <url>
+        <loc>https://www.etheriusai.com/terms</loc>
+        <lastmod>2025-01-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.2</priority>
+        <mobile:mobile/>
+    </url>
+
+    <!-- 404 Not Found page -->
+    <url>
+        <loc>https://www.etheriusai.com/404</loc>
+        <lastmod>2025-01-27</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.1</priority>
+        <mobile:mobile/>
+    </url>
+
+</urlset>

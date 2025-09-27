@@ -2,10 +2,12 @@ import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/sections/Footer";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
+import { TermsSEO } from "@/components/SEO";
 
 const TermsOfService = () => {
   return (
     <div className="min-h-screen bg-background text-foreground">
+      <TermsSEO />
       <Navigation />
 
       {/* Main Content */}

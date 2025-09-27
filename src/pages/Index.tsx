@@ -6,10 +6,12 @@ import { ServicesSection } from "@/components/sections/ServicesSection";
 import { ProcessSection } from "@/components/sections/ProcessSection";
 import { ContactSection } from "@/components/sections/ContactSection";
 import { Footer } from "@/components/sections/Footer";
+import { HomeSEO } from "@/components/SEO";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background text-foreground">
+      <HomeSEO />
       <Navigation />
       <HeroSection />
       <ProblemStatementSection />

@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Menu, X, ArrowRight } from "lucide-react";
 import { useState } from "react";
-import ethLogo from "../../icons/etherius_ai_logo.svg";
+import ethLogo from "@/assets/etherius_ai_logo.svg";
 
 export const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -14,26 +14,30 @@ export const Navigation = () => {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border/20">
+    <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-sm border-b border-border/20" style={{backgroundColor: 'rgba(8, 8, 8, 0.95)'}} role="navigation" aria-label="Main navigation">
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-28">
           {/* Logo */}
           <div className="flex items-center">
-            <img 
-              src={ethLogo} 
-              alt="Etherius AI Logo" 
-              className="h-20 w-auto"
-              loading="eager"
-            />
+            <a href="#" aria-label="Etherius AI Home">
+              <img
+                src={ethLogo}
+                alt="Etherius AI Logo"
+                className="h-12 md:h-20 w-auto object-contain"
+                loading="eager"
+              />
+            </a>
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-8" role="menu" aria-label="Desktop navigation menu">
             {navItems.map((item) => (
               <a
                 key={item.name}
                 href={item.href}
                 className="text-white hover:text-neon-yellow transition-colors duration-200 font-medium"
+                role="menuitem"
+                aria-label={`Navigate to ${item.name}`}
               >
                 {item.name}
               </a>
@@ -42,6 +46,7 @@ export const Navigation = () => {
               size="default"
               className="group shadow-2xl transform hover:scale-105 transition-all duration-300 min-h-[48px] bg-gradient-to-r from-neon-yellow to-green-400 text-black hover:from-neon-yellow/90 hover:to-green-400/90 neon-glow hover:shadow-neon-yellow/50"
               onClick={() => window.open('https://calendly.com/etheriusai/30min', '_blank')}
+              aria-label="Book a Discovery Call - Opens in new tab"
             >
               Book a Discovery Call
               <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
@@ -55,6 +60,9 @@ export const Navigation = () => {
               size="icon"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="text-foreground hover:text-neon-yellow min-h-[48px] min-w-[48px] p-3"
+              aria-label={isMenuOpen ? "Close mobile menu" : "Open mobile menu"}
+              aria-expanded={isMenuOpen}
+              aria-controls="mobile-menu"
             >
               {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </Button>
@@ -63,13 +71,15 @@ export const Navigation = () => {
 
         {/* Mobile Navigation - Enhanced touch targets */}
         {isMenuOpen && (
-          <div className="md:hidden py-4 space-y-2 border-t border-border/20">
+          <div className="md:hidden py-4 space-y-2 border-t border-border/20" id="mobile-menu" role="menu" aria-label="Mobile navigation menu">
             {navItems.map((item) => (
               <a
                 key={item.name}
                 href={item.href}
                 className="block text-white hover:text-neon-yellow transition-colors duration-200 font-medium py-3 px-2 min-h-[48px] flex items-center rounded-lg hover:bg-white/5"
                 onClick={() => setIsMenuOpen(false)}
+                role="menuitem"
+                aria-label={`Navigate to ${item.name}`}
               >
                 {item.name}
               </a>
@@ -78,6 +88,7 @@ export const Navigation = () => {
               size="default"
               className="group shadow-2xl transform hover:scale-105 transition-all duration-300 min-h-[48px] bg-gradient-to-r from-neon-yellow to-green-400 text-black hover:from-neon-yellow/90 hover:to-green-400/90 neon-glow hover:shadow-neon-yellow/50 w-full mt-4 py-3"
               onClick={() => window.open('https://calendly.com/etheriusai/30min', '_blank')}
+              aria-label="Book a Discovery Call - Opens in new tab"
             >
               Book a Discovery Call
               <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />

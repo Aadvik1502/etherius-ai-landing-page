@@ -5,10 +5,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { ArrowRight } from "lucide-react";
-import emailjs from '@emailjs/browser';
-
-// Initialize EmailJS with your public key
-emailjs.init('HaGoS7zfffU5fveCG');
+import apiService from "@/services/apiService";
 
 export const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -39,32 +36,29 @@ export const ContactSection = () => {
     setSubmitStatus('idle');
 
     try {
-      // Prepare template parameters for EmailJS
-      const templateParams = {
-        from_name: formData.fullName,
-        from_email: formData.email,
-        company_name: formData.companyName,
-        phone_number: formData.phoneNumber,
+      console.log('📝 Submitting contact form...');
+
+      // Track form submission attempt
+      await apiService.trackFormInteraction('submitted', null, {
+        companySize: formData.companySize,
         industry: formData.industry,
-        company_size: formData.companySize,
-        ai_experience: formData.aiExperience,
-        primary_interest: formData.primaryInterest,
-        timeline: formData.timeline,
-        investment_range: formData.investmentRange,
-        business_challenge: formData.businessChallenge,
-        ai_motivation: formData.aiMotivation,
-        submission_date: new Date().toLocaleString()
-      };
+        investmentRange: formData.investmentRange,
+        timeline: formData.timeline
+      });
 
-      // Send email using EmailJS
-      const result = await emailjs.send(
-        'service_ieeddhk',    // Your Service ID
-        'template_ll6gf58',   // Your Template ID
-        templateParams
-      );
+      // Submit form to backend API
+      const result = await apiService.submitContactForm(formData);
 
-      console.log('Email sent successfully:', result);
+      console.log('✅ Form submitted successfully:', result);
       setSubmitStatus('success');
+
+      // Track successful submission
+      await apiService.trackEvent('contact_form_success', {
+        leadId: result.leadId,
+        companySize: formData.companySize,
+        industry: formData.industry,
+        investmentRange: formData.investmentRange
+      });
 
       // Clear form after successful submission
       setFormData({
@@ -83,8 +77,18 @@ export const ContactSection = () => {
       });
 
     } catch (error) {
-      console.error('Failed to send email:', error);
+      console.error('❌ Form submission failed:', error);
       setSubmitStatus('error');
+
+      // Track form submission error
+      await apiService.trackEvent('contact_form_error', {
+        error: error.message,
+        formData: {
+          companySize: formData.companySize,
+          industry: formData.industry,
+          investmentRange: formData.investmentRange
+        }
+      });
     } finally {
       setIsSubmitting(false);
     }
@@ -344,7 +348,7 @@ export const ContactSection = () => {
                       {submitStatus === 'error' && (
                         <div className="mt-4 p-4 bg-red-500/20 border border-red-500/40 rounded-lg">
                           <p className="text-red-400 font-medium text-center">
-                            ❌ Something went wrong. Please try again or contact us directly at etheriusai@gmail.com
+                            ❌ Something went wrong. Please try again or contact us directly at hello@etheriusai.com
                           </p>
                         </div>
                       )}

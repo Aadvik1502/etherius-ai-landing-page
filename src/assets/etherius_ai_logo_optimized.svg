@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 80" width="300" height="80">
+  <defs>
+    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#CEFC55"/>
+      <stop offset="50%" style="stop-color:#06B6D4"/>
+      <stop offset="100%" style="stop-color:#CEFC55"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Etherius text -->
+  <text x="50" y="35" font-family="Inter, sans-serif" font-size="28" font-weight="700" fill="url(#logoGradient)">
+    Etherius
+  </text>
+
+  <!-- AI text -->
+  <text x="180" y="35" font-family="Inter, sans-serif" font-size="24" font-weight="600" fill="#FFFFFF">
+    AI
+  </text>
+
+  <!-- Subtitle -->
+  <text x="50" y="55" font-family="Inter, sans-serif" font-size="12" font-weight="400" fill="#64748B">
+    Strategic AI Solutions
+  </text>
+
+  <!-- Modern AI symbol -->
+  <g transform="translate(10, 10)">
+    <circle cx="15" cy="15" r="12" fill="none" stroke="url(#logoGradient)" stroke-width="2"/>
+    <circle cx="15" cy="15" r="6" fill="url(#logoGradient)" opacity="0.3"/>
+    <circle cx="15" cy="15" r="3" fill="#CEFC55"/>
+
+    <!-- Neural network nodes -->
+    <circle cx="5" cy="8" r="1.5" fill="#06B6D4"/>
+    <circle cx="25" cy="8" r="1.5" fill="#06B6D4"/>
+    <circle cx="5" cy="22" r="1.5" fill="#06B6D4"/>
+    <circle cx="25" cy="22" r="1.5" fill="#06B6D4"/>
+
+    <!-- Connecting lines -->
+    <line x1="5" y1="8" x2="15" y2="15" stroke="#06B6D4" stroke-width="1" opacity="0.6"/>
+    <line x1="25" y1="8" x2="15" y2="15" stroke="#06B6D4" stroke-width="1" opacity="0.6"/>
+    <line x1="5" y1="22" x2="15" y2="15" stroke="#06B6D4" stroke-width="1" opacity="0.6"/>
+    <line x1="25" y1="22" x2="15" y2="15" stroke="#06B6D4" stroke-width="1" opacity="0.6"/>
+  </g>
+</svg>

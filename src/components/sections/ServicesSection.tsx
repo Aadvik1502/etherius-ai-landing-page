@@ -12,6 +12,7 @@ const services = [
     id: "strategic-partnership",
     icon: aiPartnershipIcon,
     title: "Strategic AI Partnership",
+    altText: "AI partnership services icon showing connected business network nodes representing strategic collaboration",
     promise: "Custom AI solutions built specifically for your business",
     credibility: "ROI-focused with proven results",
     hook: "Start your AI transformation",
@@ -35,6 +36,7 @@ const services = [
     id: "revenue-growth",
     icon: aiSalesIcon,
     title: "AI Sales Teams That Work 24/7",
+    altText: "AI sales automation icon depicting 24/7 sales funnel with revenue growth arrows and conversion metrics",
     promise: "Turn every lead into a qualified opportunity while you sleep",
     credibility: "Proven across industries",
     hook: "See how it works for your industry",
@@ -58,6 +60,7 @@ const services = [
     id: "cost-optimization",
     icon: aiAutomationIcon,
     title: "AI Automations That Save Money",
+    altText: "Cost optimization icon showing efficiency arrows, dollar savings symbols, and automated workflow processes",
     promise: "Cut overhead costs without cutting quality or staff",
     credibility: "Delivering measurable cost reductions",
     hook: "Show me the savings",
@@ -81,6 +84,7 @@ const services = [
     id: "customer-experience",
     icon: customerExperienceIcon,
     title: "24/7 AI Customer Support",
+    altText: "Customer experience icon with chat bubbles, satisfaction metrics, and 24/7 support symbols",
     promise: "Every customer query answered perfectly, instantly",
     credibility: "Trusted by businesses nationwide",
     hook: "See our support in action",
@@ -260,7 +264,7 @@ export const ServicesSection = () => {
                     <div className={`inline-flex p-2 md:p-3 lg:p-4 rounded-xl md:rounded-2xl bg-white/5 group-hover:scale-[1.02] transition-transform duration-300`}>
                       <img
                         src={service.icon}
-                        alt={service.title}
+                        alt={service.altText}
                         className={service.id === 'strategic-partnership' ? 'w-10 h-10 md:w-12 md:h-12 lg:w-16 lg:h-16 xl:w-[68px] xl:h-[68px]' : 'w-8 h-8 md:w-10 md:h-10 lg:w-14 lg:h-14 xl:w-16 xl:h-16'}
                         style={{
                           filter: service.colorScheme === 'emerald' ? 'brightness(0) saturate(100%) invert(64%) sepia(88%) saturate(1425%) hue-rotate(95deg) brightness(98%) contrast(87%)' :
@@ -295,9 +299,9 @@ export const ServicesSection = () => {
                   <div>
                       {/* What We Deliver */}
                       <div className="border-t border-white/10 pt-3 md:pt-4 lg:pt-6 mb-3 md:mb-4 lg:mb-6">
-                        <h5 className={`font-bold mb-2 md:mb-3 lg:mb-4 text-sm md:text-base ${colors.accent}`}>
+                        <h4 className={`font-bold mb-2 md:mb-3 lg:mb-4 text-sm md:text-base ${colors.accent}`}>
                           What We Deliver:
-                        </h5>
+                        </h4>
                         <div className="space-y-1 md:space-y-2 lg:space-y-3">
                           {service.description.map((point, idx) => (
                             <div key={idx} className="flex items-start space-x-3 group">
