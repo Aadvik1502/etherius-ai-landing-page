@@ -26,7 +26,6 @@ const App = () => (
         <Route path="/" element={<Index />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/terms" element={<TermsOfService />} />
-        <Route path="/analytics" element={<Analytics />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
