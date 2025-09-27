@@ -93,8 +93,10 @@ export const corsOptions = {
             process.env.FRONTEND_URL || 'http://localhost:8080',
             'http://localhost:3000',
             'http://localhost:5173',
+            'http://localhost:8000', // For local analytics dashboard
             'https://etheriusai.com',
-            'https://www.etheriusai.com'
+            'https://www.etheriusai.com',
+            'https://etheriusai.co' // Current domain
         ];
 
         // Add production domains from environment
