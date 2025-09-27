@@ -1,6 +1,6 @@
 // API service for communicating with the backend
 
-const API_BASE_URL = process.env.VITE_API_URL || 'http://localhost:3001/api';
+const API_BASE_URL = process.env.VITE_API_URL || 'https://etherius-ai-backend.onrender.com/api';
 
 class ApiService {
     constructor() {
