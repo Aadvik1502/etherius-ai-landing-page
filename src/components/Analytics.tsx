@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import apiService from '@/services/apiService';
+import apiService from '@/services/apiService.js';
 
 interface AnalyticsProps {
   pageName?: string;

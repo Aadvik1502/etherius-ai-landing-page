@@ -454,3 +454,11 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Grid pattern for contact section */
+.bg-grid-pattern {
+  background-image:
+    linear-gradient(rgba(206, 252, 85, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(206, 252, 85, 0.02) 1px, transparent 1px);
+  background-size: 80px 80px;
+}

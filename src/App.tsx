@@ -5,7 +5,7 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import NotFound from "./pages/NotFound";
 import { PerformanceOptimizer } from "./components/PerformanceOptimizer";
-import { Analytics } from "./components/Analytics";
+// import { Analytics } from "./components/Analytics";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -19,7 +19,7 @@ const queryClient = new QueryClient({
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <BrowserRouter>
-      <Analytics />
+      {/* <Analytics /> */}
       <PerformanceOptimizer />
       <Routes>
         <Route path="/" element={<Index />} />

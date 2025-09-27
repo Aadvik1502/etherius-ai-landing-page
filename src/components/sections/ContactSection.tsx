@@ -5,7 +5,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { ArrowRight } from "lucide-react";
-import apiService from "@/services/apiService";
+// import apiService from "@/services/apiService.js";
 
 export const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -37,28 +37,50 @@ export const ContactSection = () => {
 
     try {
       console.log('📝 Submitting contact form...');
+      console.log('Form data:', formData);
 
-      // Track form submission attempt
-      await apiService.trackFormInteraction('submitted', null, {
-        companySize: formData.companySize,
-        industry: formData.industry,
-        investmentRange: formData.investmentRange,
-        timeline: formData.timeline
+      // Validate required fields locally first
+      const requiredFields = ['fullName', 'email', 'companyName', 'phoneNumber', 'industry', 'companySize', 'aiExperience', 'timeline', 'investmentRange'];
+      const missingFields = requiredFields.filter(field => !formData[field] || formData[field].trim() === '');
+
+      if (missingFields.length > 0) {
+        console.error('❌ Missing required fields:', missingFields);
+        alert(`Please fill in all required fields: ${missingFields.join(', ')}`);
+        setIsSubmitting(false);
+        return;
+      }
+
+      const apiUrl = 'https://etherius-ai-backend.onrender.com/api/contact';
+      console.log('🌐 Submitting to:', apiUrl);
+
+      // Submit form to backend API directly
+      const response = await fetch(apiUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-Requested-With': 'XMLHttpRequest'
+        },
+        credentials: 'include',
+        body: JSON.stringify({
+          ...formData,
+          pageUrl: window.location.href,
+          referrer: document.referrer,
+          timestamp: new Date().toISOString()
+        })
       });
 
-      // Submit form to backend API
-      const result = await apiService.submitContactForm(formData);
+      console.log('📡 Response status:', response.status);
+      console.log('📡 Response headers:', Object.fromEntries(response.headers.entries()));
+
+      const result = await response.json();
+      console.log('📡 Response body:', result);
+
+      if (!response.ok) {
+        throw new Error(result.error || result.message || `HTTP error! status: ${response.status}`);
+      }
 
       console.log('✅ Form submitted successfully:', result);
       setSubmitStatus('success');
-
-      // Track successful submission
-      await apiService.trackEvent('contact_form_success', {
-        leadId: result.leadId,
-        companySize: formData.companySize,
-        industry: formData.industry,
-        investmentRange: formData.investmentRange
-      });
 
       // Clear form after successful submission
       setFormData({
@@ -78,17 +100,12 @@ export const ContactSection = () => {
 
     } catch (error) {
       console.error('❌ Form submission failed:', error);
-      setSubmitStatus('error');
-
-      // Track form submission error
-      await apiService.trackEvent('contact_form_error', {
-        error: error.message,
-        formData: {
-          companySize: formData.companySize,
-          industry: formData.industry,
-          investmentRange: formData.investmentRange
-        }
+      console.error('❌ Error details:', {
+        message: error.message,
+        stack: error.stack,
+        name: error.name
       });
+      setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
     }
@@ -360,14 +377,6 @@ export const ContactSection = () => {
         </div>
       </div>
 
-      <style jsx>{`
-        .bg-grid-pattern {
-          background-image:
-            linear-gradient(rgba(206, 252, 85, 0.02) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(206, 252, 85, 0.02) 1px, transparent 1px);
-          background-size: 80px 80px;
-        }
-      `}</style>
     </section>
   );
 };
