@@ -217,7 +217,7 @@ export const ServicesSection = () => {
   ];
 
   return (
-    <section id="services" className="py-16 md:py-20 lg:py-24 px-6 relative overflow-hidden bg-gradient-to-br from-darker-surface via-background to-darker-surface">
+    <section id="services" className="py-16 md:py-20 lg:py-24 px-6 relative overflow-hidden bg-gradient-to-br from-darker-surface via-background to-darker-surface" aria-labelledby="services-heading" role="main">
       {/* Background Elements */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/6 left-1/8 w-32 h-32 bg-gradient-to-br from-neon-yellow/15 to-green-400/15 rounded-full blur-3xl opacity-40" />
@@ -232,7 +232,7 @@ export const ServicesSection = () => {
       <div className="container mx-auto max-w-7xl relative z-10">
         {/* Header */}
         <div className="text-center mb-20">
-          <h2 className="text-5xl md:text-6xl font-bold mb-8 text-white">
+          <h2 id="services-heading" className="text-5xl md:text-6xl font-bold mb-8 text-white">
             Our <span className="bg-gradient-to-r from-neon-yellow to-green-400 bg-clip-text text-transparent">Services</span>
           </h2>
           <p className="text-xl text-white/80 max-w-4xl mx-auto leading-relaxed">
@@ -254,9 +254,13 @@ export const ServicesSection = () => {
                 className={`group cursor-pointer transform transition-all duration-300 hover:scale-[1.005]
                   ${colors.bg} ${colors.border} border
                   ${isHovered ? 'shadow-xl ' + colors.glow : 'shadow-lg shadow-black/50'}
-                  relative overflow-hidden hover:-translate-y-1`}
+                  relative overflow-hidden hover:-translate-y-1 focus-within:ring-4 focus-within:ring-neon-yellow/50`}
                 onMouseEnter={() => setHoveredCard(service.id)}
                 onMouseLeave={() => setHoveredCard(null)}
+                role="article"
+                aria-labelledby={`service-title-${service.id}`}
+                aria-describedby={`service-description-${service.id}`}
+                tabIndex={0}
               >
                 <CardContent className="p-4 md:p-6 lg:p-8 relative z-10">
                   {/* Professional Icon */}
@@ -266,6 +270,11 @@ export const ServicesSection = () => {
                         src={service.icon}
                         alt={service.altText}
                         className={service.id === 'strategic-partnership' ? 'w-10 h-10 md:w-12 md:h-12 lg:w-16 lg:h-16 xl:w-[68px] xl:h-[68px]' : 'w-8 h-8 md:w-10 md:h-10 lg:w-14 lg:h-14 xl:w-16 xl:h-16'}
+                        width={service.id === 'strategic-partnership' ? '68' : '64'}
+                        height={service.id === 'strategic-partnership' ? '68' : '64'}
+                        loading="lazy"
+                        decoding="async"
+                        role="img"
                         style={{
                           filter: service.colorScheme === 'emerald' ? 'brightness(0) saturate(100%) invert(64%) sepia(88%) saturate(1425%) hue-rotate(95deg) brightness(98%) contrast(87%)' :
                                   service.colorScheme === 'orange' ? 'brightness(0) saturate(100%) invert(71%) sepia(100%) saturate(1000%) hue-rotate(3deg) brightness(101%) contrast(107%)' :
@@ -278,7 +287,7 @@ export const ServicesSection = () => {
 
                   {/* Capability Statement */}
                   <div className="text-center mb-3 md:mb-4 lg:mb-6">
-                    <h3 className={`text-lg md:text-xl lg:text-2xl font-bold mb-3 md:mb-4 lg:mb-6 leading-tight ${
+                    <h3 id={`service-title-${service.id}`} className={`text-lg md:text-xl lg:text-2xl font-bold mb-3 md:mb-4 lg:mb-6 leading-tight ${
                       service.colorScheme === 'emerald' ? 'bg-gradient-to-r from-emerald-400 to-emerald-300 bg-clip-text text-transparent' :
                       service.colorScheme === 'orange' ? 'bg-gradient-to-r from-orange-400 to-orange-300 bg-clip-text text-transparent' :
                       service.colorScheme === 'blue' ? 'bg-gradient-to-r from-blue-400 to-blue-300 bg-clip-text text-transparent' :
@@ -290,7 +299,7 @@ export const ServicesSection = () => {
 
                   {/* Service Description */}
                   <div className="text-center mb-4 md:mb-6 lg:mb-8">
-                    <p className="text-white text-sm md:text-base lg:text-lg leading-relaxed font-medium px-1">
+                    <p id={`service-description-${service.id}`} className="text-white text-sm md:text-base lg:text-lg leading-relaxed font-medium px-1">
                       {service.promise}
                     </p>
                   </div>
@@ -318,21 +327,27 @@ export const ServicesSection = () => {
                       <div className="border-t border-white/10 pt-6 mb-6">
                         <button
                           onClick={() => toggleImpact(service.id)}
-                          className={`flex items-center space-x-2 font-bold mb-4 text-base ${colors.accent} transition-colors duration-200`}
+                          className={`flex items-center space-x-2 font-bold mb-4 text-base ${colors.accent} transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-neon-yellow/50 rounded-lg p-2 hover:bg-white/5`}
+                          aria-expanded={expandedImpacts[service.id]}
+                          aria-controls={`impact-content-${service.id}`}
+                          aria-label={`${expandedImpacts[service.id] ? 'Hide' : 'Show'} impact details for ${service.title}`}
                         >
                           <span>The Impact</span>
                           <ChevronDown
                             className={`w-5 h-5 transition-transform duration-300 ${
                               expandedImpacts[service.id] ? 'rotate-180' : 'rotate-0'
                             }`}
+                            aria-hidden="true"
                           />
                         </button>
                         <div
+                          id={`impact-content-${service.id}`}
                           className={`overflow-hidden transition-all duration-500 ease-in-out ${
                             expandedImpacts[service.id]
                               ? 'max-h-96 opacity-100'
                               : 'max-h-0 opacity-0'
                           }`}
+                          aria-hidden={!expandedImpacts[service.id]}
                         >
                           <div className="space-y-4 pb-2">
                             {service.impact.map((impact, idx) => (

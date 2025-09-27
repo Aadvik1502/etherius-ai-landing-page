@@ -54,10 +54,10 @@ export const TypewriterText = () => {
 
   return (
     <div className="h-20 md:h-28 flex items-center justify-center">
-      <h1 className="rotating-text">
+      <h1 id="hero-heading" className="rotating-text" aria-live="polite" aria-label="Etherius AI tagline">
         <span className="text-white">From </span>
         {renderTextWithWhiteTo(currentText)}
-        <span className="animate-pulse bg-gradient-to-r from-neon-yellow to-green-400 bg-clip-text text-transparent">|</span>
+        <span className="animate-pulse bg-gradient-to-r from-neon-yellow to-green-400 bg-clip-text text-transparent" aria-hidden="true">|</span>
       </h1>
     </div>
   );

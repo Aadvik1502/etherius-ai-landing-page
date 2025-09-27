@@ -21,7 +21,8 @@ const Index = () => {
     <div className="min-h-screen bg-background text-foreground">
       <HomeSEO />
       <Navigation />
-      <HeroSection />
+      <main id="main-content" role="main" aria-label="Main website content">
+        <HeroSection />
       <Suspense fallback={<SectionSkeleton />}>
         <ProblemStatementSection />
       </Suspense>
@@ -40,6 +41,7 @@ const Index = () => {
       <Suspense fallback={<SectionSkeleton />}>
         <Footer />
       </Suspense>
+      </main>
     </div>
   );
 };

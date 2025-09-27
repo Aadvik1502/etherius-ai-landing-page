@@ -14,7 +14,7 @@ export const Navigation = () => {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-sm border-b border-border/20" style={{backgroundColor: 'rgba(8, 8, 8, 0.95)'}} role="navigation" aria-label="Main navigation">
+    <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-sm border-0 overflow-hidden" style={{backgroundColor: 'rgba(8, 8, 8, 0.95)', borderTop: 'none', outline: 'none'}} role="navigation" aria-label="Main navigation">
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-28">
           {/* Logo */}
@@ -38,7 +38,7 @@ export const Navigation = () => {
               <a
                 key={item.name}
                 href={item.href}
-                className="text-white hover:text-neon-yellow transition-colors duration-200 font-medium"
+                className="text-white hover:text-neon-yellow transition-colors duration-200 font-medium flex items-center h-12"
                 role="menuitem"
                 aria-label={`Navigate to ${item.name}`}
               >
@@ -47,7 +47,7 @@ export const Navigation = () => {
             ))}
             <Button
               size="default"
-              className="group shadow-2xl transform hover:scale-105 transition-all duration-300 min-h-[48px] bg-gradient-to-r from-neon-yellow to-green-400 text-black hover:from-neon-yellow/90 hover:to-green-400/90 neon-glow hover:shadow-neon-yellow/50"
+              className="group shadow-lg transform hover:scale-105 transition-all duration-300 h-12 bg-gradient-to-r from-neon-yellow to-green-400 text-black hover:from-neon-yellow/90 hover:to-green-400/90 flex items-center border border-neon-yellow/20 hover:border-neon-yellow/40"
               onClick={() => window.open('https://calendly.com/etheriusai/30min', '_blank')}
               aria-label="Book a Discovery Call - Opens in new tab"
             >
@@ -89,7 +89,7 @@ export const Navigation = () => {
             ))}
             <Button
               size="default"
-              className="group shadow-2xl transform hover:scale-105 transition-all duration-300 min-h-[48px] bg-gradient-to-r from-neon-yellow to-green-400 text-black hover:from-neon-yellow/90 hover:to-green-400/90 neon-glow hover:shadow-neon-yellow/50 w-full mt-4 py-3"
+              className="group shadow-lg transform hover:scale-105 transition-all duration-300 min-h-[48px] bg-gradient-to-r from-neon-yellow to-green-400 text-black hover:from-neon-yellow/90 hover:to-green-400/90 w-full mt-4 py-3 border border-neon-yellow/20 hover:border-neon-yellow/40"
               onClick={() => window.open('https://calendly.com/etheriusai/30min', '_blank')}
               aria-label="Book a Discovery Call - Opens in new tab"
             >

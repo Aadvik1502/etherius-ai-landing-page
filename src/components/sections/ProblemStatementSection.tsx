@@ -51,12 +51,12 @@ const problems = [
 
 export const ProblemStatementSection = () => {
   return (
-    <section className="py-16 md:py-20 lg:py-24 px-6 relative overflow-hidden bg-quantum-black">
+    <section className="py-16 md:py-20 lg:py-24 px-6 relative overflow-hidden bg-quantum-black" aria-labelledby="problems-heading" role="region">
 
       <div className="container mx-auto max-w-6xl relative z-10">
         {/* Header */}
         <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 px-4">
+          <h2 id="problems-heading" className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 px-4">
             These <span className="bg-gradient-to-r from-neon-yellow to-green-400 bg-clip-text text-transparent">4 Barriers</span> Are<br />
             Blocking Your <span className="bg-gradient-to-r from-neon-yellow to-green-400 bg-clip-text text-transparent">AI Success</span>
           </h2>

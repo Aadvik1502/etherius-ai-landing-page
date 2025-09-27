@@ -7,13 +7,15 @@ import { useState, useEffect } from "react";
 
 // Custom SVG icons
 const RoiIcon = ({ className }: { className?: string }) => (
-  <svg 
-    xmlns="http://www.w3.org/2000/svg" 
-    width="32" 
-    height="32" 
-    viewBox="0 0 375.12 383.03998" 
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="32"
+    height="32"
+    viewBox="0 0 375.12 383.03998"
     className={className}
     fill="currentColor"
+    role="img"
+    aria-label="ROI (Return on Investment) icon showing growth arrow with dollar sign"
   >
     <path d="M138.269531 113.84375C70.90625 113.84375 16.292969 168.457031 16.292969 235.820312C16.292969 303.1875 70.90625 357.800781 138.269531 357.800781C169.210938 357.800781 197.445312 346.289062 218.949219 327.304688C222.316406 324.335938 227.457031 324.65625 230.429688 328.023438C233.402344 331.390625 233.082031 336.527344 229.710938 339.5C205.347656 361.003906 173.324219 374.0625 138.269531 374.0625C61.921875 374.0625 0.03125 312.167969 0.03125 235.820312C0.03125 159.472656 61.921875 97.582031 138.269531 97.582031C159.324219 97.582031 179.296875 102.292969 197.179688 110.726562C201.242188 112.644531 202.980469 117.488281 201.0625 121.550781C199.148438 125.613281 194.304688 127.351562 190.242188 125.4375C174.484375 118.003906 156.875 113.84375 138.269531 113.84375Z"/>
     <path d="M138.269531 146.371094C88.867188 146.371094 48.820312 186.417969 48.820312 235.820312C48.820312 285.222656 88.867188 325.273438 138.269531 325.273438C171.367188 325.273438 200.28125 307.296875 215.757812 280.539062C218.007812 276.652344 222.980469 275.324219 226.871094 277.574219C230.757812 279.824219 232.085938 284.796875 229.835938 288.683594C211.570312 320.261719 177.410156 341.535156 138.269531 341.535156C79.886719 341.535156 32.558594 294.207031 32.558594 235.820312C32.558594 177.4375 79.886719 130.109375 138.269531 130.109375C150.613281 130.109375 162.476562 132.226562 173.507812 136.125C177.742188 137.621094 179.960938 142.269531 178.464844 146.503906C176.96875 150.738281 172.320312 152.957031 168.089844 151.460938C158.773438 148.167969 148.738281 146.371094 138.269531 146.371094Z"/>
@@ -151,7 +153,8 @@ export const HeroSection = () => {
   return (
     <section
       className="h-screen flex flex-col items-center justify-center relative overflow-hidden"
-      aria-label="Hero section with company introduction and call-to-action"
+      aria-labelledby="hero-heading"
+      role="banner"
     >
       {/* SVG Gradient Definition for Stars */}
       <svg width="0" height="0" className="absolute">
@@ -264,11 +267,13 @@ export const HeroSection = () => {
         <div className="flex items-center justify-center">
           <Button
             size="lg"
-            className="group shadow-2xl transform hover:scale-105 transition-all duration-300 min-h-[48px] bg-gradient-to-r from-neon-yellow to-green-400 text-black hover:from-neon-yellow/90 hover:to-green-400/90 neon-glow hover:shadow-neon-yellow/50 px-8 py-6 md:px-10 md:py-7 text-lg md:text-xl font-bold min-w-[200px]"
+            className="group shadow-2xl transform hover:scale-105 transition-all duration-300 min-h-[48px] bg-gradient-to-r from-neon-yellow to-green-400 text-black hover:from-neon-yellow/90 hover:to-green-400/90 neon-glow hover:shadow-neon-yellow/50 px-8 py-6 md:px-10 md:py-7 text-lg md:text-xl font-bold min-w-[200px] focus:outline-none focus:ring-4 focus:ring-neon-yellow/50"
             onClick={() => window.open('https://calendly.com/etheriusai/30min', '_blank')}
+            aria-label="Schedule a free 30-minute discovery call to unlock your AI advantage - Opens in new tab"
+            role="button"
           >
             Unlock Your AI Advantage
-            <ArrowRight className="ml-3 w-5 h-5 md:w-6 md:h-6 group-hover:translate-x-2 transition-transform duration-300" />
+            <ArrowRight className="ml-3 w-5 h-5 md:w-6 md:h-6 group-hover:translate-x-2 transition-transform duration-300" aria-hidden="true" />
           </Button>
         </div>
 
