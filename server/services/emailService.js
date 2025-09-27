@@ -8,18 +8,31 @@ class EmailService {
 
     init() {
         try {
-            // Create nodemailer transporter
-            this.transporter = nodemailer.createTransport({
-                service: process.env.EMAIL_SERVICE || 'gmail',
+            // Create nodemailer transporter with explicit SMTP settings
+            const emailConfig = {
+                host: process.env.EMAIL_HOST || 'smtp.gmail.com',
+                port: parseInt(process.env.EMAIL_PORT) || 587,
+                secure: process.env.EMAIL_SECURE === 'true' || false,
                 auth: {
                     user: process.env.EMAIL_USER,
                     pass: process.env.EMAIL_PASS
                 },
-                secure: true,
                 tls: {
                     rejectUnauthorized: false
-                }
-            });
+                },
+                connectionTimeout: 60000, // 60 seconds
+                greetingTimeout: 30000,   // 30 seconds
+                socketTimeout: 60000      // 60 seconds
+            };
+
+            // If using Gmail service shorthand
+            if (process.env.EMAIL_SERVICE === 'gmail') {
+                emailConfig.service = 'gmail';
+                delete emailConfig.host;
+                delete emailConfig.port;
+            }
+
+            this.transporter = nodemailer.createTransport(emailConfig);
 
             // Verify connection configuration
             this.transporter.verify((error, success) => {
