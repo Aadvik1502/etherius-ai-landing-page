@@ -1,6 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { SearchX, Users, Settings, AlertTriangle } from "lucide-react";
 import { HiOutlineBanknotes } from "react-icons/hi2";
+import { useVisibilityTracking } from "@/components/Analytics";
 
 const problems = [
   {
@@ -50,8 +51,9 @@ const problems = [
 ];
 
 export const ProblemStatementSection = () => {
+  const { sectionRef } = useVisibilityTracking({ sectionName: 'problem-statement' });
   return (
-    <section className="py-16 md:py-20 lg:py-24 px-6 relative overflow-hidden bg-quantum-black" aria-labelledby="problems-heading" role="region">
+    <section ref={sectionRef} className="py-16 md:py-20 lg:py-24 px-6 relative overflow-hidden bg-quantum-black" aria-labelledby="problems-heading" role="region">
 
       <div className="container mx-auto max-w-6xl relative z-10">
         {/* Header */}

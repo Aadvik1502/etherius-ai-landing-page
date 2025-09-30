@@ -1,6 +1,6 @@
 // API service for communicating with the backend
 
-const API_BASE_URL = process.env.VITE_API_URL || 'https://etherius-ai-backend.onrender.com/api';
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001/api';
 
 class ApiService {
     constructor() {
@@ -115,7 +115,19 @@ class ApiService {
             timestamp: new Date().toISOString()
         };
 
-        return this.trackEvent('page_view', pageData);
+        // Track in custom backend
+        const result = await this.trackEvent('page_view', pageData);
+
+        // Track in GA4
+        if (typeof window !== 'undefined' && window.gtag) {
+            window.gtag('event', 'page_view', {
+                page_title: pageData.page,
+                page_location: pageData.url,
+                page_path: pageData.path
+            });
+        }
+
+        return result;
     }
 
     // Track CTA clicks
@@ -140,11 +152,21 @@ class ApiService {
 
     // Track scroll depth
     async trackScrollDepth(percentage) {
-        return this.trackEvent('scroll_depth', {
+        // Track in custom backend
+        const result = this.trackEvent('scroll_depth', {
             percentage,
             url: window.location.href,
             timestamp: new Date().toISOString()
         });
+
+        // Track in GA4 (only milestone percentages)
+        if (typeof window !== 'undefined' && window.gtag && [25, 50, 75, 90, 100].includes(percentage)) {
+            window.gtag('event', 'scroll', {
+                percent_scrolled: percentage
+            });
+        }
+
+        return result;
     }
 
     // Track time on page

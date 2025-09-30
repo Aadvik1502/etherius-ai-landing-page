@@ -1,6 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Search, Hammer, TrendingUp } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
+import { useVisibilityTracking } from "@/components/Analytics";
 
 const journeySteps = [
   {
@@ -160,6 +161,7 @@ const JourneyStepCard = ({ step, index, isVisible }: { step: typeof journeySteps
 };
 
 export const ProcessSection = () => {
+  const { sectionRef: trackingRef } = useVisibilityTracking({ sectionName: 'process' });
   const [visibleSteps, setVisibleSteps] = useState<boolean[]>([false, false, false]);
   const [timelineProgress, setTimelineProgress] = useState(0);
   const sectionRef = useRef<HTMLElement>(null);
@@ -200,7 +202,12 @@ export const ProcessSection = () => {
   }, []);
 
   return (
-    <section id="process" ref={sectionRef} className="relative py-12 md:py-16 lg:py-20 px-6 bg-gradient-to-br from-darker-surface via-background to-darker-surface overflow-hidden">
+    <section id="process" ref={(node) => {
+      sectionRef.current = node;
+      if (node && trackingRef) {
+        (trackingRef as React.MutableRefObject<HTMLElement | null>).current = node;
+      }
+    }} className="relative py-12 md:py-16 lg:py-20 px-6 bg-gradient-to-br from-darker-surface via-background to-darker-surface overflow-hidden">
       {/* Enhanced Background Elements */}
       <div className="absolute inset-0 pointer-events-none">
         {/* Original floating shapes */}

@@ -297,6 +297,34 @@ app.get('/api/admin/analytics',
     }
 );
 
+// Admin authentication endpoint
+app.post('/api/admin/login',
+    async (req, res) => {
+        try {
+            const { password } = req.body;
+            const adminPassword = process.env.ADMIN_PASSWORD || 'admin123'; // Default for development
+
+            if (password === adminPassword) {
+                res.status(200).json({
+                    success: true,
+                    message: 'Authentication successful'
+                });
+            } else {
+                res.status(401).json({
+                    success: false,
+                    error: 'Invalid password'
+                });
+            }
+        } catch (error) {
+            console.error('❌ Login error:', error);
+            res.status(500).json({
+                success: false,
+                error: 'Login failed'
+            });
+        }
+    }
+);
+
 // Test email endpoint (for development/testing)
 if (process.env.NODE_ENV === 'development') {
     app.post('/api/test/email',

@@ -2,6 +2,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, TrendingUp, DollarSign, Users, Target, ChevronDown } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
+import { useVisibilityTracking } from "@/components/Analytics";
 import aiPartnershipIcon from "@/../icons/services_section/ai_partnership.svg";
 import aiSalesIcon from "@/../icons/services_section/ai_sales.svg";
 import aiAutomationIcon from "@/../icons/services_section/ai_automation.svg";
@@ -198,6 +199,7 @@ const getColorClasses = (colorScheme: string) => {
 };
 
 export const ServicesSection = () => {
+  const { sectionRef } = useVisibilityTracking({ sectionName: 'services' });
   const [hoveredCard, setHoveredCard] = useState<string | null>(null);
   const [expandedImpacts, setExpandedImpacts] = useState<Record<string, boolean>>({});
 
@@ -217,7 +219,7 @@ export const ServicesSection = () => {
   ];
 
   return (
-    <section id="services" className="py-16 md:py-20 lg:py-24 px-6 relative overflow-hidden bg-gradient-to-br from-darker-surface via-background to-darker-surface" aria-labelledby="services-heading" role="main">
+    <section ref={sectionRef} id="services" className="py-16 md:py-20 lg:py-24 px-6 relative overflow-hidden bg-gradient-to-br from-darker-surface via-background to-darker-surface" aria-labelledby="services-heading" role="main">
       {/* Background Elements */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/6 left-1/8 w-32 h-32 bg-gradient-to-br from-neon-yellow/15 to-green-400/15 rounded-full blur-3xl opacity-40" />

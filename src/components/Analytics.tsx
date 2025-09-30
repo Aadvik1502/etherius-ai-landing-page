@@ -1,12 +1,33 @@
 import { useEffect } from 'react';
 import apiService from '@/services/apiService.js';
+import { useClickHeatmap } from '@/hooks/useClickHeatmap';
+
+// Re-export tracking hooks
+export { useVisibilityTracking } from '@/hooks/useVisibilityTracking';
+export { useClickHeatmap } from '@/hooks/useClickHeatmap';
+
+// GA4 Event Tracking Utility
+export const trackGA4Event = (eventName: string, eventParams: Record<string, any> = {}) => {
+  try {
+    if (typeof window !== 'undefined' && (window as any).gtag) {
+      (window as any).gtag('event', eventName, eventParams);
+      console.log(`✅ GA4 Event tracked: ${eventName}`, eventParams);
+    }
+  } catch (error) {
+    console.warn('GA4 event tracking failed:', error);
+  }
+};
 
 interface AnalyticsProps {
   pageName?: string;
   trackPageView?: boolean;
+  trackClicks?: boolean;
 }
 
-export const Analytics = ({ pageName, trackPageView = true }: AnalyticsProps) => {
+export const Analytics = ({ pageName, trackPageView = true, trackClicks = true }: AnalyticsProps) => {
+  // Always call hooks unconditionally (React rules)
+  useClickHeatmap();
+
   useEffect(() => {
     if (trackPageView) {
       // Track page view with optional custom page name
@@ -21,7 +42,15 @@ export const Analytics = ({ pageName, trackPageView = true }: AnalyticsProps) =>
 export const useCTATracking = () => {
   const trackCTAClick = async (ctaType: string, ctaText: string, location: string) => {
     try {
+      // Track in custom backend
       await apiService.trackCTAClick(ctaType, ctaText, location);
+
+      // Track in GA4
+      trackGA4Event('engage_with_cta', {
+        cta_type: ctaType,
+        cta_text: ctaText,
+        cta_location: location
+      });
     } catch (error) {
       console.warn('CTA tracking failed:', error);
     }

@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { TrendingDown, Zap, Heart } from "lucide-react";
+import { useVisibilityTracking } from "@/components/Analytics";
 
 // Custom SVG icons
 const RoiIcon = ({ className }: { className?: string }) => (
@@ -136,8 +137,9 @@ const valuePropositions = [
 ];
 
 export const SolutionOverviewSection = () => {
+  const { sectionRef } = useVisibilityTracking({ sectionName: 'solution-overview' });
   return (
-    <section id="mission" className="relative py-16 md:py-20 lg:py-24 px-6 bg-gradient-to-br from-background via-background to-slate-900 overflow-hidden">
+    <section ref={sectionRef} id="mission" className="relative py-16 md:py-20 lg:py-24 px-6 bg-gradient-to-br from-background via-background to-slate-900 overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 pointer-events-none">
         <FloatingShape className="top-1/4 left-1/4" delay={0} />

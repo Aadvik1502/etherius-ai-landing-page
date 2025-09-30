@@ -4,6 +4,7 @@ import { TypewriterText } from "@/components/TypeWriterText";
 import { LogoSlider } from "@/components/LogoSlider";
 import { ArrowRight, Users, Star, TrendingDown, Zap, Heart } from "lucide-react";
 import { useState, useEffect } from "react";
+import { useCTATracking, useVisibilityTracking } from "@/components/Analytics";
 
 // Custom SVG icons
 const RoiIcon = ({ className }: { className?: string }) => (
@@ -50,6 +51,8 @@ const stats = [
 ];
 
 export const HeroSection = () => {
+  const { trackCTAClick } = useCTATracking();
+  const { sectionRef } = useVisibilityTracking({ sectionName: 'hero' });
   const [mousePosition, setMousePosition] = useState({ x: 50, y: 50 });
   const [particlePositions, setParticlePositions] = useState<Array<{
     id: number;
@@ -152,6 +155,7 @@ export const HeroSection = () => {
 
   return (
     <section
+      ref={sectionRef}
       className="h-screen flex flex-col items-center justify-center relative overflow-hidden"
       aria-labelledby="hero-heading"
       role="banner"
@@ -268,7 +272,10 @@ export const HeroSection = () => {
           <Button
             size="lg"
             className="group shadow-2xl transform hover:scale-105 transition-all duration-300 min-h-[48px] bg-gradient-to-r from-neon-yellow to-green-400 text-black hover:from-neon-yellow/90 hover:to-green-400/90 neon-glow hover:shadow-neon-yellow/50 px-8 py-6 md:px-10 md:py-7 text-lg md:text-xl font-bold min-w-[200px] focus:outline-none focus:ring-4 focus:ring-neon-yellow/50"
-            onClick={() => window.open('https://calendly.com/etheriusai/30min', '_blank')}
+            onClick={() => {
+              trackCTAClick('primary', 'Unlock Your AI Advantage', 'hero-section');
+              window.open('https://calendly.com/etheriusai/30min', '_blank');
+            }}
             aria-label="Schedule a free 30-minute discovery call to unlock your AI advantage - Opens in new tab"
             role="button"
           >

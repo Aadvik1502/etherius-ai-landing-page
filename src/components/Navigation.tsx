@@ -2,8 +2,10 @@ import { Button } from "@/components/ui/button";
 import { Menu, X, ArrowRight } from "lucide-react";
 import { useState } from "react";
 import ethLogo from "@/assets/etherius_ai_logo.svg";
+import { useCTATracking } from "@/components/Analytics";
 
 export const Navigation = () => {
+  const { trackCTAClick } = useCTATracking();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navItems = [
@@ -48,7 +50,10 @@ export const Navigation = () => {
             <Button
               size="default"
               className="group shadow-lg transform hover:scale-105 transition-all duration-300 h-12 bg-gradient-to-r from-neon-yellow to-green-400 text-black hover:from-neon-yellow/90 hover:to-green-400/90 flex items-center border border-neon-yellow/20 hover:border-neon-yellow/40"
-              onClick={() => window.open('https://calendly.com/etheriusai/30min', '_blank')}
+              onClick={() => {
+                trackCTAClick('secondary', 'Book a Discovery Call', 'navigation-desktop');
+                window.open('https://calendly.com/etheriusai/30min', '_blank');
+              }}
               aria-label="Book a Discovery Call - Opens in new tab"
             >
               Book a Discovery Call
@@ -90,7 +95,10 @@ export const Navigation = () => {
             <Button
               size="default"
               className="group shadow-lg transform hover:scale-105 transition-all duration-300 min-h-[48px] bg-gradient-to-r from-neon-yellow to-green-400 text-black hover:from-neon-yellow/90 hover:to-green-400/90 w-full mt-4 py-3 border border-neon-yellow/20 hover:border-neon-yellow/40"
-              onClick={() => window.open('https://calendly.com/etheriusai/30min', '_blank')}
+              onClick={() => {
+                trackCTAClick('secondary', 'Book a Discovery Call', 'navigation-mobile');
+                window.open('https://calendly.com/etheriusai/30min', '_blank');
+              }}
               aria-label="Book a Discovery Call - Opens in new tab"
             >
               Book a Discovery Call

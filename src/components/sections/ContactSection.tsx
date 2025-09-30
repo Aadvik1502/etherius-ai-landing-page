@@ -5,7 +5,6 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { ArrowRight } from "lucide-react";
-// import apiService from "@/services/apiService.js";
 
 export const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -81,6 +80,19 @@ export const ContactSection = () => {
 
       console.log('✅ Form submitted successfully:', result);
       setSubmitStatus('success');
+
+      // Track conversion in GA4
+      if (typeof window !== 'undefined' && (window as any).gtag) {
+        (window as any).gtag('event', 'generate_lead', {
+          event_category: 'Lead Generation',
+          event_label: 'Contact Form Submission',
+          company_size: formData.companySize,
+          industry: formData.industry,
+          investment_range: formData.investmentRange,
+          timeline: formData.timeline,
+          value: 1
+        });
+      }
 
       // Clear form after successful submission
       setFormData({
