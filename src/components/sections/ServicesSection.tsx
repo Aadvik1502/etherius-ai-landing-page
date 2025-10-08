@@ -238,7 +238,7 @@ export const ServicesSection = () => {
             Our <span className="bg-gradient-to-r from-neon-yellow to-green-400 bg-clip-text text-transparent">Services</span>
           </h2>
           <p className="text-xl text-white/80 max-w-4xl mx-auto leading-relaxed">
-            Four strategic AI solutions designed to transform your business.
+            Four strategic AI consulting services designed to transform your business operations. From custom AI agents and voice AI solutions to intelligent automation and enterprise AI strategy, we deliver measurable results that drive revenue growth, reduce costs, and create lasting competitive advantage through proven AI implementation.
           </p>
         </div>
 

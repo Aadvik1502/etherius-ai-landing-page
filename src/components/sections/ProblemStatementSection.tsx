@@ -63,8 +63,8 @@ export const ProblemStatementSection = () => {
             Blocking Your <span className="bg-gradient-to-r from-neon-yellow to-green-400 bg-clip-text text-transparent">AI Success</span>
           </h2>
           <p className="text-lg sm:text-xl md:text-2xl text-gray-400 max-w-4xl mx-auto leading-relaxed px-4">
-            Most businesses know AI is essential but get stuck on these critical misconceptions.<br />
-            We help you navigate past them to real results.
+            Most businesses know AI implementation is essential for competitive advantage, but get stuck on these critical misconceptions about enterprise AI strategy and business AI integration.<br />
+            Our AI consulting experts help you navigate past these barriers to achieve measurable ROI and real business transformation through proven AI solutions.
           </p>
         </div>
 
@@ -121,7 +121,7 @@ export const ProblemStatementSection = () => {
           {/* Internal Navigation Links */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-4xl mx-auto">
             <a
-              href="#services"
+              href="/#services"
               className="group inline-flex items-center justify-center px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-neon-yellow to-green-400 text-black font-bold text-lg md:text-xl rounded-lg hover:from-neon-yellow/90 hover:to-green-400/90 transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-neon-yellow/25 min-w-[280px]"
               aria-label="View our AI consulting services that solve these problems"
             >
@@ -132,7 +132,7 @@ export const ProblemStatementSection = () => {
             </a>
 
             <a
-              href="#process"
+              href="/#process"
               className="group inline-flex items-center justify-center px-6 md:px-8 py-3 md:py-4 border-2 border-neon-yellow text-neon-yellow font-bold text-lg md:text-xl rounded-lg hover:bg-neon-yellow hover:text-black transition-all duration-300 hover:scale-105 min-w-[280px]"
               aria-label="Learn about our proven 3-step AI implementation process"
             >
@@ -150,7 +150,7 @@ export const ProblemStatementSection = () => {
 
               {/* ROI-Focused AI Strategy Card */}
               <a
-                href="#services"
+                href="/#services"
                 className="group relative p-4 md:p-5 bg-gradient-to-br from-blue-500/10 to-blue-400/5 backdrop-blur-sm border border-blue-400/20 rounded-xl hover:border-blue-400/40 transition-all duration-300 hover:scale-105 hover:-translate-y-2 hover:shadow-lg hover:shadow-blue-400/20 text-center"
                 aria-label="Learn about our ROI-focused AI strategy services"
               >
@@ -166,7 +166,7 @@ export const ProblemStatementSection = () => {
 
               {/* 24/7 AI Sales Teams Card */}
               <a
-                href="#services"
+                href="/#services"
                 className="group relative p-4 md:p-5 bg-gradient-to-br from-emerald-500/10 to-emerald-400/5 backdrop-blur-sm border border-emerald-400/20 rounded-xl hover:border-emerald-400/40 transition-all duration-300 hover:scale-105 hover:-translate-y-2 hover:shadow-lg hover:shadow-emerald-400/20 text-center"
                 aria-label="Discover our 24/7 AI sales team solutions"
               >
@@ -183,7 +183,7 @@ export const ProblemStatementSection = () => {
 
               {/* Cost-Cutting Automation Card */}
               <a
-                href="#services"
+                href="/#services"
                 className="group relative p-4 md:p-5 bg-gradient-to-br from-orange-500/10 to-orange-400/5 backdrop-blur-sm border border-orange-400/20 rounded-xl hover:border-orange-400/40 transition-all duration-300 hover:scale-105 hover:-translate-y-2 hover:shadow-lg hover:shadow-orange-400/20 text-center"
                 aria-label="See our cost-cutting automation solutions"
               >
@@ -200,7 +200,7 @@ export const ProblemStatementSection = () => {
 
               {/* Free Consultation Card */}
               <a
-                href="#contact"
+                href="/#contact"
                 className="group relative p-4 md:p-5 bg-gradient-to-br from-neon-yellow/10 to-neon-yellow/5 backdrop-blur-sm border border-neon-yellow/20 rounded-xl hover:border-neon-yellow/40 transition-all duration-300 hover:scale-105 hover:-translate-y-2 hover:shadow-lg hover:shadow-neon-yellow/20 text-center"
                 aria-label="Get started with a free AI consultation"
               >

@@ -13,13 +13,9 @@ export const ContactSection = () => {
     companyName: "",
     phoneNumber: "",
     industry: "",
-    companySize: "",
     aiExperience: "",
     primaryInterest: "",
-    businessChallenge: "",
-    aiMotivation: "",
-    timeline: "",
-    investmentRange: ""
+    businessChallenge: ""
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -39,7 +35,7 @@ export const ContactSection = () => {
       console.log('Form data:', formData);
 
       // Validate required fields locally first
-      const requiredFields = ['fullName', 'email', 'companyName', 'phoneNumber', 'industry', 'companySize', 'aiExperience', 'timeline', 'investmentRange'];
+      const requiredFields = ['fullName', 'email', 'companyName', 'phoneNumber', 'industry', 'aiExperience'];
       const missingFields = requiredFields.filter(field => !formData[field] || formData[field].trim() === '');
 
       if (missingFields.length > 0) {
@@ -86,10 +82,8 @@ export const ContactSection = () => {
         (window as any).gtag('event', 'generate_lead', {
           event_category: 'Lead Generation',
           event_label: 'Contact Form Submission',
-          company_size: formData.companySize,
           industry: formData.industry,
-          investment_range: formData.investmentRange,
-          timeline: formData.timeline,
+          ai_experience: formData.aiExperience,
           value: 1
         });
       }
@@ -101,13 +95,9 @@ export const ContactSection = () => {
         companyName: "",
         phoneNumber: "",
         industry: "",
-        companySize: "",
         aiExperience: "",
         primaryInterest: "",
-        businessChallenge: "",
-        aiMotivation: "",
-        timeline: "",
-        investmentRange: ""
+        businessChallenge: ""
       });
 
     } catch (error) {
@@ -216,42 +206,25 @@ export const ContactSection = () => {
                     </div>
 
                     {/* Business Context */}
-                    <div className="grid md:grid-cols-2 gap-6">
-                      <div>
-                        <Label htmlFor="industry" className="text-white font-medium mb-3 block text-base">Industry *</Label>
-                        <Select onValueChange={(value) => handleInputChange("industry", value)}>
-                          <SelectTrigger className="bg-background/50 border-border/30 focus:border-neon-yellow text-white h-12 md:h-12 text-base min-h-[48px]">
-                            <SelectValue placeholder="Select your industry" />
-                          </SelectTrigger>
-                          <SelectContent>
-                            <SelectItem value="technology">Technology</SelectItem>
-                            <SelectItem value="finance">Finance & Banking</SelectItem>
-                            <SelectItem value="healthcare">Healthcare</SelectItem>
-                            <SelectItem value="manufacturing">Manufacturing</SelectItem>
-                            <SelectItem value="retail">Retail & E-commerce</SelectItem>
-                            <SelectItem value="professional">Professional Services</SelectItem>
-                            <SelectItem value="real-estate">Real Estate</SelectItem>
-                            <SelectItem value="education">Education</SelectItem>
-                            <SelectItem value="logistics">Logistics & Supply Chain</SelectItem>
-                            <SelectItem value="other">Other</SelectItem>
-                          </SelectContent>
-                        </Select>
-                      </div>
-                      <div>
-                        <Label htmlFor="companySize" className="text-white font-medium mb-3 block text-base">Company Size *</Label>
-                        <Select onValueChange={(value) => handleInputChange("companySize", value)} required>
-                          <SelectTrigger className="bg-background/50 border-border/30 focus:border-neon-yellow text-white h-12 md:h-12 text-base min-h-[48px]">
-                            <SelectValue placeholder="Select company size" />
-                          </SelectTrigger>
-                          <SelectContent>
-                            <SelectItem value="startup">Startup (1-10 employees)</SelectItem>
-                            <SelectItem value="small">Small Business (11-50 employees)</SelectItem>
-                            <SelectItem value="mid-market">Mid-Market (51-250 employees)</SelectItem>
-                            <SelectItem value="enterprise">Enterprise (251-1000 employees)</SelectItem>
-                            <SelectItem value="large-enterprise">Large Enterprise (1000+ employees)</SelectItem>
-                          </SelectContent>
-                        </Select>
-                      </div>
+                    <div>
+                      <Label htmlFor="industry" className="text-white font-medium mb-3 block text-base">Industry *</Label>
+                      <Select onValueChange={(value) => handleInputChange("industry", value)}>
+                        <SelectTrigger className="bg-background/50 border-border/30 focus:border-neon-yellow text-white h-12 md:h-12 text-base min-h-[48px]">
+                          <SelectValue placeholder="Select your industry" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="technology">Technology</SelectItem>
+                          <SelectItem value="finance">Finance & Banking</SelectItem>
+                          <SelectItem value="healthcare">Healthcare</SelectItem>
+                          <SelectItem value="manufacturing">Manufacturing</SelectItem>
+                          <SelectItem value="retail">Retail & E-commerce</SelectItem>
+                          <SelectItem value="professional">Professional Services</SelectItem>
+                          <SelectItem value="real-estate">Real Estate</SelectItem>
+                          <SelectItem value="education">Education</SelectItem>
+                          <SelectItem value="logistics">Logistics & Supply Chain</SelectItem>
+                          <SelectItem value="other">Other</SelectItem>
+                        </SelectContent>
+                      </Select>
                     </div>
 
                     {/* AI-Specific Discovery */}
@@ -298,51 +271,6 @@ export const ContactSection = () => {
                         placeholder="Describe any business challenges you're facing, processes you'd like to automate, or ways you're considering using AI to improve your operations..."
                         className="bg-background/50 border-border/30 focus:border-neon-yellow focus:ring-neon-yellow/20 text-white placeholder:text-white/40 min-h-[100px] text-base"
                       />
-                    </div>
-
-                    <div>
-                      <Label htmlFor="aiMotivation" className="text-white font-medium mb-3 block text-base">What's driving your AI interest?</Label>
-                      <Textarea
-                        id="aiMotivation"
-                        value={formData.aiMotivation}
-                        onChange={(e) => handleInputChange("aiMotivation", e.target.value)}
-                        placeholder="What sparked your interest in AI? Competitive pressure, efficiency needs, new opportunities?"
-                        className="bg-background/50 border-border/30 focus:border-neon-yellow focus:ring-neon-yellow/20 text-white placeholder:text-white/40 min-h-[100px] text-base"
-                      />
-                    </div>
-
-                    {/* Project Context */}
-                    <div className="grid md:grid-cols-2 gap-6">
-                      <div>
-                        <Label htmlFor="timeline" className="text-white font-medium mb-3 block text-base">Expected Timeline *</Label>
-                        <Select onValueChange={(value) => handleInputChange("timeline", value)} required>
-                          <SelectTrigger className="bg-background/50 border-border/30 focus:border-neon-yellow text-white h-12 md:h-12 text-base min-h-[48px]">
-                            <SelectValue placeholder="Select timeline" />
-                          </SelectTrigger>
-                          <SelectContent>
-                            <SelectItem value="immediate">Immediate (1-3 months)</SelectItem>
-                            <SelectItem value="short">Short-term (3-6 months)</SelectItem>
-                            <SelectItem value="medium">Medium-term (6-12 months)</SelectItem>
-                            <SelectItem value="long">Long-term (12+ months)</SelectItem>
-                            <SelectItem value="not-sure">Not sure yet</SelectItem>
-                          </SelectContent>
-                        </Select>
-                      </div>
-                      <div>
-                        <Label htmlFor="investmentRange" className="text-white font-medium mb-3 block text-base">Investment Range *</Label>
-                        <Select onValueChange={(value) => handleInputChange("investmentRange", value)} required>
-                          <SelectTrigger className="bg-background/50 border-border/30 focus:border-neon-yellow text-white h-12 md:h-12 text-base min-h-[48px]">
-                            <SelectValue placeholder="Select investment range" />
-                          </SelectTrigger>
-                          <SelectContent>
-                            <SelectItem value="under-10k">Under $10K</SelectItem>
-                            <SelectItem value="10k-25k">$10K - $25K</SelectItem>
-                            <SelectItem value="25k-50k">$25K - $50K</SelectItem>
-                            <SelectItem value="50k-100k">$50K - $100K</SelectItem>
-                            <SelectItem value="100k-plus">$100K+</SelectItem>
-                          </SelectContent>
-                        </Select>
-                      </div>
                     </div>
 
                     <div className="pt-4">

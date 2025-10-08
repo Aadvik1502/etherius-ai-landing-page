@@ -10,11 +10,13 @@ export const Footer = () => {
         <div className="grid md:grid-cols-2 gap-12 items-center mb-12">
           {/* Brand section */}
           <div>
-            <img 
-              src={ethLogo} 
-              alt="Etherius AI Logo" 
+            <img
+              src={ethLogo}
+              alt="Etherius AI - Strategic AI Consulting and Implementation Services Logo"
               className="h-12 w-auto mb-6"
               loading="eager"
+              width="180"
+              height="48"
             />
             <p className="text-lg text-white italic mb-6">
               Strategic AI. Real Results.
@@ -24,16 +26,16 @@ export const Footer = () => {
           {/* Navigation links */}
           <div className="space-y-4 md:text-right">
             <div className="flex flex-wrap gap-6 md:justify-end">
-              <a href="#services" className="text-white hover:text-neon-yellow transition-colors">
+              <a href="/#services" className="text-white hover:text-neon-yellow transition-colors">
                 Services
               </a>
-              <a href="#process" className="text-white hover:text-neon-yellow transition-colors">
+              <a href="/#process" className="text-white hover:text-neon-yellow transition-colors">
                 Process
               </a>
-              <a href="#mission" className="text-white hover:text-neon-yellow transition-colors">
+              <a href="/#mission" className="text-white hover:text-neon-yellow transition-colors">
                 Mission
               </a>
-              <a href="#contact" className="text-white hover:text-neon-yellow transition-colors">
+              <a href="/#contact" className="text-white hover:text-neon-yellow transition-colors">
                 Contact
               </a>
             </div>

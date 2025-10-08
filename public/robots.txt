@@ -58,4 +58,4 @@ Allow: /terms
 Allow: /
 
 # Sitemap location
-Sitemap: https://www.etheriusai.com/sitemap.xml
+Sitemap: https://etheriusai.co/sitemap.xml

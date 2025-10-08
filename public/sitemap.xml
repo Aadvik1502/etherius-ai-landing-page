@@ -5,46 +5,46 @@
 
     <!-- Homepage - Main landing page with AI consulting services -->
     <url>
-        <loc>https://www.etheriusai.com/</loc>
-        <lastmod>2025-01-27</lastmod>
+        <loc>https://etheriusai.co/</loc>
+        <lastmod>2025-10-07</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
         <mobile:mobile/>
 
         <!-- Key images for SEO -->
         <image:image>
-            <image:loc>https://www.etheriusai.com/etherius-ai-logo.png</image:loc>
+            <image:loc>https://etheriusai.co/etherius-ai-logo.png</image:loc>
             <image:title>Etherius AI - Strategic AI Solutions</image:title>
             <image:caption>Etherius AI company logo for strategic AI consulting services</image:caption>
         </image:image>
 
         <image:image>
-            <image:loc>https://www.etheriusai.com/og-image.jpg</image:loc>
+            <image:loc>https://etheriusai.co/og-image.svg</image:loc>
             <image:title>AI Consulting Services That Deliver Results</image:title>
             <image:caption>Strategic AI consulting for business transformation and growth</image:caption>
         </image:image>
 
         <!-- Service icons -->
         <image:image>
-            <image:loc>https://www.etheriusai.com/src/assets/ai_sales_agent.svg</image:loc>
+            <image:loc>https://etheriusai.co/icons/services_section/ai_sales.svg</image:loc>
             <image:title>AI Sales Agent Solutions</image:title>
             <image:caption>AI agents that drive real business results</image:caption>
         </image:image>
 
         <image:image>
-            <image:loc>https://www.etheriusai.com/src/assets/revenue_growth.svg</image:loc>
-            <image:title>Revenue Growth Through AI</image:title>
-            <image:caption>AI-powered revenue optimization and business growth</image:caption>
+            <image:loc>https://etheriusai.co/icons/services_section/ai_partnership.svg</image:loc>
+            <image:title>Strategic AI Partnership Services</image:title>
+            <image:caption>AI-powered partnership and business growth solutions</image:caption>
         </image:image>
 
         <image:image>
-            <image:loc>https://www.etheriusai.com/src/assets/cost_optimization.svg</image:loc>
-            <image:title>AI Cost Optimization</image:title>
+            <image:loc>https://etheriusai.co/icons/services_section/ai_automation.svg</image:loc>
+            <image:title>AI Business Automation</image:title>
             <image:caption>Intelligent automation for cost reduction and efficiency</image:caption>
         </image:image>
 
         <image:image>
-            <image:loc>https://www.etheriusai.com/src/assets/customer_experience.svg</image:loc>
+            <image:loc>https://etheriusai.co/src/assets/customer_experience.svg</image:loc>
             <image:title>AI Customer Experience Enhancement</image:title>
             <image:caption>Voice and chat AI for improved customer satisfaction</image:caption>
         </image:image>
@@ -52,8 +52,8 @@
 
     <!-- Privacy Policy -->
     <url>
-        <loc>https://www.etheriusai.com/privacy</loc>
-        <lastmod>2025-01-27</lastmod>
+        <loc>https://etheriusai.co/privacy</loc>
+        <lastmod>2025-10-07</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.2</priority>
         <mobile:mobile/>
@@ -61,8 +61,8 @@
 
     <!-- Terms of Service -->
     <url>
-        <loc>https://www.etheriusai.com/terms</loc>
-        <lastmod>2025-01-27</lastmod>
+        <loc>https://etheriusai.co/terms</loc>
+        <lastmod>2025-10-07</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.2</priority>
         <mobile:mobile/>
@@ -70,8 +70,8 @@
 
     <!-- 404 Not Found page -->
     <url>
-        <loc>https://www.etheriusai.com/404</loc>
-        <lastmod>2025-01-27</lastmod>
+        <loc>https://etheriusai.co/404</loc>
+        <lastmod>2025-10-07</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.1</priority>
         <mobile:mobile/>

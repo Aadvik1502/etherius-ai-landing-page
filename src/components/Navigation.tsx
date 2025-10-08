@@ -9,10 +9,11 @@ export const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navItems = [
-    { name: "Services", href: "#services" },
-    { name: "Process", href: "#process" },
-    { name: "Mission", href: "#mission" },
-    { name: "Contact", href: "#contact" }
+    { name: "Services", href: "/#services" },
+    { name: "Process", href: "/#process" },
+    { name: "Mission", href: "/#mission" },
+    { name: "Blog", href: "/blog" },
+    { name: "Contact", href: "/#contact" }
   ];
 
   return (
@@ -24,23 +25,23 @@ export const Navigation = () => {
             <a href="#" aria-label="Etherius AI Home">
               <img
                 src={ethLogo}
-                alt="Etherius AI Logo - AI Consulting Firm"
+                alt="Etherius AI - Strategic AI Consulting and Implementation Services - 240% ROI Guaranteed"
                 className="h-12 md:h-20 w-auto object-contain"
                 width="160"
                 height="80"
                 loading="eager"
-                fetchpriority="high"
+                fetchPriority="high"
               />
             </a>
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8" role="menu" aria-label="Desktop navigation menu">
+          <div className="hidden md:flex items-center gap-8" role="menu" aria-label="Desktop navigation menu">
             {navItems.map((item) => (
               <a
                 key={item.name}
                 href={item.href}
-                className="text-white hover:text-neon-yellow transition-colors duration-200 font-medium flex items-center h-12"
+                className="text-white hover:text-neon-yellow transition-colors duration-200 font-medium flex items-center h-12 whitespace-nowrap"
                 role="menuitem"
                 aria-label={`Navigate to ${item.name}`}
               >

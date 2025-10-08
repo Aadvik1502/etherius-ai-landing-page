@@ -4,6 +4,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { useEffect } from "react";
 
 const faqs = [
   {
@@ -29,6 +30,33 @@ const faqs = [
 ];
 
 export const FAQSection = () => {
+  useEffect(() => {
+    // Add FAQ schema markup
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.id = 'faq-schema';
+    script.text = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": faqs.map(faq => ({
+        "@type": "Question",
+        "name": faq.question,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": faq.answer
+        }
+      }))
+    });
+    document.head.appendChild(script);
+
+    return () => {
+      const existingScript = document.getElementById('faq-schema');
+      if (existingScript) {
+        document.head.removeChild(existingScript);
+      }
+    };
+  }, []);
+
   return (
     <section className="py-24 px-6">
       <div className="container mx-auto max-w-4xl">

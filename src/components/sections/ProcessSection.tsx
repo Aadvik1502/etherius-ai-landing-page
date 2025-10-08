@@ -248,8 +248,8 @@ export const ProcessSection = () => {
           </h2>
 
           <p className="text-xl md:text-2xl text-white max-w-4xl mx-auto leading-relaxed">
-            The best AI transformations happen{" "}
-            <span className="text-neon-yellow font-semibold">side by side</span>.
+            The best AI transformations and strategic AI implementations happen{" "}
+            <span className="text-neon-yellow font-semibold">side by side</span> with expert AI consultants. Our proven methodology combines AI strategy consulting, custom development, and ongoing optimization to deliver enterprise-grade AI solutions that drive measurable business results.
           </p>
         </div>
 

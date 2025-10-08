@@ -115,23 +115,23 @@ const stats = [
 
 const valuePropositions = [
   {
-    text: "Strategic roadmap that drives real business results.",
+    text: "Strategic AI roadmap and implementation plan that drives real business results.",
     delay: 0
   },
   {
-    text: "Complete solution development and deployment.",
+    text: "Complete AI solution development, testing, and deployment with enterprise-grade quality.",
     delay: 150
   },
   {
-    text: "Working AI systems that integrate seamlessly with your operations.",
+    text: "Working AI systems and intelligent automation that integrate seamlessly with your existing operations.",
     delay: 300
   },
   {
-    text: "Guaranteed measurable ROI within 6 months.",
+    text: "Guaranteed measurable ROI within 6 months through data-driven AI optimization.",
     delay: 450
   },
   {
-    text: "Your team empowered to succeed with ongoing support.",
+    text: "Your team empowered to succeed with AI training, documentation, and ongoing support.",
     delay: 600
   }
 ];
@@ -167,7 +167,7 @@ export const SolutionOverviewSection = () => {
               </h2>
 
               <p className="text-xl text-muted-foreground leading-relaxed">
-                Our proven methodology delivers measurable outcomes that transform your business operations and drive sustainable growth.
+                Our proven AI consulting methodology delivers measurable outcomes through strategic AI implementation that transforms your business operations and drives sustainable growth. We specialize in custom AI solutions, enterprise AI strategy, and business AI integration that guarantees ROI.
               </p>
             </div>
           </div>
