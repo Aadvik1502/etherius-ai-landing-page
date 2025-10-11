@@ -491,3 +491,26 @@
     linear-gradient(90deg, rgba(206, 252, 85, 0.02) 1px, transparent 1px);
   background-size: 80px 80px;
 }
+
+/* Fix for form input red borders - override browser default invalid state */
+input:required:invalid,
+textarea:required:invalid,
+select:required:invalid {
+  border-color: hsl(var(--border)) !important;
+  box-shadow: none !important;
+}
+
+/* Only show red border when user has interacted with the field */
+input:required:invalid:not(:placeholder-shown),
+textarea:required:invalid:not(:placeholder-shown),
+select:required:invalid:not(:placeholder-shown) {
+  border-color: rgb(239, 68, 68);
+}
+
+/* Also handle the case when field is focused and invalid */
+input:required:invalid:focus,
+textarea:required:invalid:focus,
+select:required:invalid:focus {
+  border-color: hsl(var(--neon-yellow)) !important;
+  outline: none !important;
+}

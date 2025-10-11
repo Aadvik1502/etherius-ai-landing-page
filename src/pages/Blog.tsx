@@ -23,8 +23,28 @@ interface BlogPost {
 const blogPosts: BlogPost[] = [
   {
     id: "1",
+    title: "AI Voice Agents in 2025: The Complete Implementation Guide for Business Leaders",
+    excerpt: "Master AI voice agent implementation with our proven framework. Reduce support costs by 68%, boost customer satisfaction 30%, and scale your business intelligently with this comprehensive guide.",
+    author: "Etherius AI Team",
+    date: "2025-10-17",
+    readTime: "13 min read",
+    category: "AI Implementation",
+    slug: "ai-voice-agents-implementation-guide-2025"
+  },
+  {
+    id: "2",
+    title: "Why 70% of AI Projects Fail in 2025 (And How Your Business Can Succeed)",
+    excerpt: "Discover why AI projects fail and learn the proven framework that helps businesses avoid the $trillions lost annually. Real insights from 240% ROI success stories and the exact mistakes to avoid.",
+    author: "Etherius AI Team",
+    date: "2025-10-15",
+    readTime: "11 min read",
+    category: "AI Implementation",
+    slug: "why-ai-projects-fail-2025"
+  },
+  {
+    id: "3",
     title: "The Complete Guide to Choosing an AI Consulting Firm in 2025",
-    excerpt: "Discover the key factors to consider when selecting an AI consulting partner that will deliver real ROI for your business. Learn from industry experts about proven selection criteria.",
+    excerpt: "🚀 Coming soon! We're crafting the ultimate guide to help you find the perfect AI partner. Spoiler: it's not just about fancy tech demos and buzzwords. Real talk about vetting consultants who deliver results.",
     author: "Etherius AI Team",
     date: "2025-10-07",
     readTime: "8 min read",
@@ -32,9 +52,9 @@ const blogPosts: BlogPost[] = [
     slug: "choosing-ai-consulting-firm-2025"
   },
   {
-    id: "2",
+    id: "4",
     title: "How to Calculate Real ROI from AI Implementation",
-    excerpt: "A comprehensive framework for measuring and maximizing ROI from your AI investments. Includes our proprietary AI ROI calculator and real-world case studies.",
+    excerpt: "📊 Coming soon! Learn exactly how to calculate your AI ROI (no spreadsheet wizardry required). Real numbers, real results, real frameworks that actually work in the messy world of business.",
     author: "Etherius AI Team",
     date: "2025-10-06",
     readTime: "10 min read",
@@ -42,9 +62,9 @@ const blogPosts: BlogPost[] = [
     slug: "calculate-ai-implementation-roi"
   },
   {
-    id: "3",
+    id: "5",
     title: "AI Automation vs Traditional Automation: Which Delivers Better Results?",
-    excerpt: "Compare AI-powered automation with traditional workflow automation. Discover which approach delivers higher efficiency, cost savings, and scalability for your business.",
+    excerpt: "⚡ Coming soon! The automation showdown nobody asked for but everyone needs. AI vs Traditional—which wins? Spoiler: AI dominates, but not in the ways you think. Get ready for some myth-busting.",
     author: "Etherius AI Team",
     date: "2025-10-05",
     readTime: "7 min read",
@@ -52,9 +72,9 @@ const blogPosts: BlogPost[] = [
     slug: "ai-automation-vs-traditional-automation"
   },
   {
-    id: "4",
+    id: "6",
     title: "7 Signs Your Business Needs an AI Strategy Consultant",
-    excerpt: "Identify the key indicators that your business is ready for professional AI strategy consulting. Learn when to invest in expert guidance for AI transformation.",
+    excerpt: "🎯 Coming soon! Think you need AI consulting? These 7 signs will tell you if you're actually ready—or just following the hype. (Hint: If you're googling 'do I need AI,' you might already know the answer.)",
     author: "Etherius AI Team",
     date: "2025-10-04",
     readTime: "6 min read",
@@ -92,7 +112,7 @@ export default function Blog() {
           {/* Header */}
           <div className="text-center mb-16">
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6">
-              <span className="bg-gradient-to-r from-neon-yellow to-green-400 bg-clip-text text-transparent">Blog</span>
+              <span className="bg-gradient-to-r from-neon-yellow to-green-400 bg-clip-text text-transparent">AI Insights & Strategies</span>
             </h1>
             <p className="text-xl text-white/80 max-w-3xl mx-auto">
               Stay ahead with the latest AI consulting strategies, implementation guides, and industry insights from our expert team.
