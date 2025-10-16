@@ -2,7 +2,7 @@
 title: "Why 70% of AI Projects Fail in 2025 (And How Your Business Can Succeed)"
 meta_description: "Discover why AI projects fail and learn the proven framework that helps businesses avoid the $trillions lost annually. Real insights from 240% ROI success stories."
 keywords: "why AI projects fail, AI implementation challenges, AI project failure rate, AI adoption barriers, successful AI implementation, AI consulting ROI"
-author: "Etherius AI Team"
+author: "Aadvik Bagga, Founder"
 date: "2025-10-11"
 updated: "2025-10-11"
 category: "AI Implementation"

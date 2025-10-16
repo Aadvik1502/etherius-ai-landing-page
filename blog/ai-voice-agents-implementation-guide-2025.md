@@ -2,7 +2,7 @@
 title: "AI Voice Agents in 2025: The Complete Implementation Guide for Business Leaders"
 meta_description: "Master AI voice agent implementation with our proven framework. Reduce support costs by 68%, boost customer satisfaction 30%, and scale your business intelligently."
 keywords: "AI voice agents, voice AI implementation, conversational AI, AI voice agent implementation, customer service automation, AI chatbot implementation, voice AI for business"
-author: "Etherius AI Team"
+author: "Aadvik Bagga, Founder"
 date: "2025-10-11"
 updated: "2025-10-11"
 category: "AI Implementation"
