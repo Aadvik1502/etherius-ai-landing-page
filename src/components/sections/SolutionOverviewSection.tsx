@@ -155,7 +155,7 @@ export const SolutionOverviewSection = () => {
           {/* Left Column - Headline and Introduction */}
           <div className="space-y-8">
             <div className="space-y-8">
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-center md:text-left">
                 We Bridge the<br />
                 Gap Between<br />
                 <span className="bg-gradient-to-r from-neon-yellow to-green-400 bg-clip-text text-transparent">
@@ -166,7 +166,7 @@ export const SolutionOverviewSection = () => {
                 </span>
               </h2>
 
-              <p className="text-xl text-muted-foreground leading-relaxed">
+              <p className="text-xl text-muted-foreground leading-relaxed text-center md:text-left">
                 Our proven AI consulting methodology delivers measurable outcomes through strategic AI implementation that transforms your business operations and drives sustainable growth. We specialize in custom AI solutions, enterprise AI strategy, and business AI integration that guarantees ROI.
               </p>
             </div>
@@ -174,7 +174,7 @@ export const SolutionOverviewSection = () => {
 
           {/* Right Column - Value Propositions */}
           <div className="space-y-8">
-            <h3 className="text-3xl font-semibold text-center -ml-8">
+            <h3 className="text-3xl font-semibold text-center">
               <span className="bg-gradient-to-r from-neon-yellow to-green-400 bg-clip-text text-transparent">Our Mission</span>
             </h3>
 
@@ -204,7 +204,7 @@ export const SolutionOverviewSection = () => {
 
         {/* Proven Results Section */}
         <div className="mt-20">
-          <h3 className="text-3xl font-semibold mb-12 text-center -ml-8">
+          <h3 className="text-3xl font-semibold mb-12 text-center">
             <span className="bg-gradient-to-r from-neon-yellow to-green-400 bg-clip-text text-transparent">Proven Results Across Industries</span>
           </h3>
 

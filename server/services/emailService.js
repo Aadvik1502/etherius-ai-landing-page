@@ -77,7 +77,7 @@ class EmailService {
 
                 const mailOptions = {
                     from: process.env.EMAIL_USER,
-                    to: process.env.EMAIL_TO || 'hello@etheriusai.com',
+                    to: process.env.EMAIL_TO || 'support@etheriusai.co',
                     subject: subject,
                     text: textBody,
                     html: htmlBody
@@ -140,7 +140,7 @@ class EmailService {
             if (type === 'notification') {
                 emailData = {
                     from: fromEmail,
-                    to: process.env.EMAIL_TO || 'etheriusai@gmail.com',
+                    to: process.env.EMAIL_TO || 'support@etheriusai.co',
                     subject: `🚀 New Lead: ${leadData.fullName} from ${leadData.companyName}`,
                     html: this.generateLeadNotificationHTML(leadData),
                     text: this.generateLeadNotificationText(leadData)
@@ -346,7 +346,7 @@ Submitted: ${new Date().toLocaleString()}
                     <p><strong>Timeline:</strong> ${leadData.timeline}</p>
                     <p><strong>Investment Range:</strong> ${leadData.investmentRange}</p>
 
-                    <p>In the meantime, feel free to explore our case studies and AI success stories at <a href="https://etheriusai.com">etheriusai.com</a></p>
+                    <p>In the meantime, feel free to explore our case studies and AI success stories at <a href="https://etheriusai.co">etheriusai.co</a></p>
 
                     <p>Have an urgent question? Reply to this email or call us directly.</p>
 
@@ -356,7 +356,7 @@ Submitted: ${new Date().toLocaleString()}
 
                 <div class="footer">
                     <p>Etherius AI - Transforming AI potential into measurable business results</p>
-                    <p>Email: hello@etheriusai.com | Website: etheriusai.com</p>
+                    <p>Email: support@etheriusai.co | Website: etheriusai.co</p>
                 </div>
             </div>
         </body>
@@ -381,7 +381,7 @@ Industry: ${leadData.industry}
 Timeline: ${leadData.timeline}
 Investment Range: ${leadData.investmentRange}
 
-In the meantime, feel free to explore our case studies and AI success stories at etheriusai.com
+In the meantime, feel free to explore our case studies and AI success stories at etheriusai.co
 
 Have an urgent question? Reply to this email or call us directly.
 
@@ -390,7 +390,7 @@ The Etherius AI Team
 
 ---
 Etherius AI - Transforming AI potential into measurable business results
-Email: hello@etheriusai.com | Website: etheriusai.com
+Email: support@etheriusai.co | Website: etheriusai.co
         `;
     }
 

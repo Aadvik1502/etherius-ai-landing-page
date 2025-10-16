@@ -114,7 +114,7 @@ export const HomeSEO = () => (
           },
           "image": "https://etheriusai.co/og-image.svg",
           "telephone": "+1-555-AI-SOLUTIONS",
-          "email": "hello@etheriusai.com",
+          "email": "support@etheriusai.co",
           "foundingDate": "2024",
           "numberOfEmployees": "2-10",
           "slogan": "From AI to ROI - Strategic AI Solutions That Deliver Results",
@@ -136,7 +136,7 @@ export const HomeSEO = () => (
             },
             {
               "@type": "ContactPoint",
-              "email": "hello@etheriusai.com",
+              "email": "support@etheriusai.co",
               "contactType": "sales",
               "areaServed": "Worldwide"
             }

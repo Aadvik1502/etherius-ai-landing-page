@@ -234,7 +234,7 @@ export const LeadCapturePopup = () => {
                 {submitStatus === 'error' && (
                   <div className="p-3 bg-red-500/20 border border-red-500/40 rounded-lg">
                     <p className="text-red-400 text-sm text-center">
-                      ❌ Something went wrong. Please try again or contact us at hello@etheriusai.com
+                      ❌ Something went wrong. Please try again or contact us at support@etheriusai.co
                     </p>
                   </div>
                 )}

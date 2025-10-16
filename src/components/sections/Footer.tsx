@@ -1,5 +1,5 @@
 import { Separator } from "@/components/ui/separator";
-import { Linkedin, Twitter } from "lucide-react";
+import { Linkedin } from "lucide-react";
 import ethLogo from "@/assets/big_ethai_logo.svg";
 
 export const Footer = () => {
@@ -18,7 +18,7 @@ export const Footer = () => {
               width="180"
               height="48"
             />
-            <p className="text-lg text-white italic mb-6">
+            <p className="text-lg text-white italic">
               Strategic AI. Real Results.
             </p>
           </div>
@@ -42,17 +42,14 @@ export const Footer = () => {
             
             {/* Social links */}
             <div className="flex gap-4 md:justify-end">
-              <a 
-                href="#"
-                className="p-2 rounded-lg bg-card border border-border/20 hover:border-primary/50 text-white hover:text-primary transition-all duration-300"
+              <a
+                href="https://www.linkedin.com/company/etherius-ai/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 rounded-lg bg-card border border-border/20 hover:border-neon-yellow/50 text-white hover:text-neon-yellow transition-all duration-300"
+                aria-label="Visit Etherius AI on LinkedIn"
               >
                 <Linkedin className="w-5 h-5" />
-              </a>
-              <a 
-                href="#"
-                className="p-2 rounded-lg bg-card border border-border/20 hover:border-primary/50 text-white hover:text-primary transition-all duration-300"
-              >
-                <Twitter className="w-5 h-5" />
               </a>
             </div>
           </div>

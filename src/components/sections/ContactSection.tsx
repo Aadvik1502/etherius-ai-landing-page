@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Mail } from "lucide-react";
 
 export const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -305,10 +305,29 @@ export const ContactSection = () => {
                       {submitStatus === 'error' && (
                         <div className="mt-4 p-4 bg-red-500/20 border border-red-500/40 rounded-lg">
                           <p className="text-red-400 font-medium text-center">
-                            ❌ Something went wrong. Please try again or contact us directly at hello@etheriusai.com
+                            ❌ Something went wrong. Please try again or contact us directly at support@etheriusai.co
                           </p>
                         </div>
                       )}
+
+                      {/* Direct Email Contact Option */}
+                      <div className="mt-8 pt-8 border-t border-white/10">
+                        <div className="text-center">
+                          <p className="text-white/80 text-base md:text-lg mb-4">
+                            Prefer to reach out directly?
+                          </p>
+                          <a
+                            href="mailto:support@etheriusai.co"
+                            className="inline-flex items-center gap-2 text-neon-yellow hover:text-green-400 transition-colors font-medium text-lg group"
+                          >
+                            <Mail className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                            <span>support@etheriusai.co</span>
+                          </a>
+                          <p className="text-white/60 text-sm mt-3">
+                            We typically respond within 24 hours
+                          </p>
+                        </div>
+                      </div>
                     </div>
                 </form>
               </div>
