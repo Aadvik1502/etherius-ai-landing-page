@@ -221,29 +221,15 @@ class EmailService {
                             <div>${leadData.industry}</div>
                         </div>
                         <div class="info-item">
-                            <div class="label">Company Size:</div>
-                            <div>${leadData.companySize}</div>
-                        </div>
-                        <div class="info-item">
                             <div class="label">AI Experience:</div>
                             <div>${leadData.aiExperience}</div>
                         </div>
-                        <div class="info-item">
-                            <div class="label">Timeline:</div>
-                            <div>${leadData.timeline}</div>
-                        </div>
-                    </div>
-
-                    <h2>Project Information</h2>
-                    <div class="info-grid">
-                        <div class="info-item">
-                            <div class="label">Investment Range:</div>
-                            <div>${leadData.investmentRange}</div>
-                        </div>
+                        ${leadData.primaryInterest ? `
                         <div class="info-item">
                             <div class="label">Primary Interest:</div>
-                            <div>${leadData.primaryInterest || 'Not specified'}</div>
+                            <div>${leadData.primaryInterest}</div>
                         </div>
+                        ` : ''}
                     </div>
 
                     ${leadData.businessChallenge ? `
@@ -259,12 +245,6 @@ class EmailService {
                         <p>${leadData.aiMotivation}</p>
                     </div>
                     ` : ''}
-
-                    <h2>Lead Priority Recommendation</h2>
-                    <div class="info-item priority-${this.calculateLeadPriority(leadData)}">
-                        <div class="label">Priority Level:</div>
-                        <div>${this.calculateLeadPriority(leadData).toUpperCase()}</div>
-                    </div>
                 </div>
 
                 <div class="footer">
@@ -289,18 +269,13 @@ Company: ${leadData.companyName}
 
 Business Details:
 Industry: ${leadData.industry}
-Company Size: ${leadData.companySize}
 AI Experience: ${leadData.aiExperience}
-Timeline: ${leadData.timeline}
-Investment Range: ${leadData.investmentRange}
 
 ${leadData.primaryInterest ? `Primary Interest: ${leadData.primaryInterest}` : ''}
 
 ${leadData.businessChallenge ? `Business Challenge:\n${leadData.businessChallenge}` : ''}
 
 ${leadData.aiMotivation ? `AI Motivation:\n${leadData.aiMotivation}` : ''}
-
-Priority Level: ${this.calculateLeadPriority(leadData).toUpperCase()}
 
 Submitted: ${new Date().toLocaleString()}
         `;
@@ -343,8 +318,7 @@ Submitted: ${new Date().toLocaleString()}
                     <h2>Your submission summary:</h2>
                     <p><strong>Company:</strong> ${leadData.companyName}</p>
                     <p><strong>Industry:</strong> ${leadData.industry}</p>
-                    <p><strong>Timeline:</strong> ${leadData.timeline}</p>
-                    <p><strong>Investment Range:</strong> ${leadData.investmentRange}</p>
+                    <p><strong>AI Experience:</strong> ${leadData.aiExperience}</p>
 
                     <p>In the meantime, feel free to explore our case studies and AI success stories at <a href="https://etheriusai.co">etheriusai.co</a></p>
 
@@ -378,8 +352,7 @@ What happens next?
 Your submission summary:
 Company: ${leadData.companyName}
 Industry: ${leadData.industry}
-Timeline: ${leadData.timeline}
-Investment Range: ${leadData.investmentRange}
+AI Experience: ${leadData.aiExperience}
 
 In the meantime, feel free to explore our case studies and AI success stories at etheriusai.co
 
@@ -394,54 +367,6 @@ Email: support@etheriusai.co | Website: etheriusai.co
         `;
     }
 
-    calculateLeadPriority(leadData) {
-        let score = 0;
-
-        // Investment range scoring
-        const investmentScores = {
-            'under-10k': 1,
-            '10k-25k': 2,
-            '25k-50k': 3,
-            '50k-100k': 4,
-            '100k-plus': 5
-        };
-        score += investmentScores[leadData.investmentRange] || 0;
-
-        // Timeline scoring (faster timeline = higher priority)
-        const timelineScores = {
-            'immediate': 5,
-            'short': 4,
-            'medium': 3,
-            'long': 2,
-            'not-sure': 1
-        };
-        score += timelineScores[leadData.timeline] || 0;
-
-        // Company size scoring
-        const companySizeScores = {
-            'startup': 2,
-            'small': 3,
-            'mid-market': 4,
-            'enterprise': 5,
-            'large-enterprise': 5
-        };
-        score += companySizeScores[leadData.companySize] || 0;
-
-        // AI experience scoring (less experience = potentially easier conversion)
-        const aiExperienceScores = {
-            'none': 4,
-            'exploring': 5,
-            'pilot': 4,
-            'some': 3,
-            'advanced': 2
-        };
-        score += aiExperienceScores[leadData.aiExperience] || 0;
-
-        // Determine priority based on total score
-        if (score >= 15) return 'high';
-        if (score >= 10) return 'medium';
-        return 'low';
-    }
 }
 
 export default EmailService;

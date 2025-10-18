@@ -30,24 +30,12 @@ export const validateContactForm = [
         .withMessage('Please provide a valid phone number'),
 
     body('industry')
-        .isIn(['technology', 'finance', 'healthcare', 'manufacturing', 'retail', 'professional', 'real-estate', 'education', 'logistics', 'other'])
+        .isIn(['technology', 'finance', 'healthcare', 'manufacturing', 'retail', 'professional', 'real-estate', 'education', 'logistics', 'other', 'not-specified'])
         .withMessage('Please select a valid industry'),
 
-    body('companySize')
-        .isIn(['startup', 'small', 'mid-market', 'enterprise', 'large-enterprise'])
-        .withMessage('Please select a valid company size'),
-
     body('aiExperience')
-        .isIn(['none', 'exploring', 'pilot', 'some', 'advanced'])
+        .isIn(['none', 'exploring', 'pilot', 'some', 'advanced', 'not-specified'])
         .withMessage('Please select a valid AI experience level'),
-
-    body('timeline')
-        .isIn(['immediate', 'short', 'medium', 'long', 'not-sure'])
-        .withMessage('Please select a valid timeline'),
-
-    body('investmentRange')
-        .isIn(['under-10k', '10k-25k', '25k-50k', '50k-100k', '100k-plus'])
-        .withMessage('Please select a valid investment range'),
 
     // Optional fields validation
     body('primaryInterest')
@@ -154,10 +142,7 @@ export const sanitizeContactData = (data) => {
     sanitized.companyName = data.companyName?.trim();
     sanitized.phoneNumber = data.phoneNumber?.trim().replace(/\D/g, '').replace(/^(\d{1})/, '+$1');
     sanitized.industry = data.industry;
-    sanitized.companySize = data.companySize;
     sanitized.aiExperience = data.aiExperience;
-    sanitized.timeline = data.timeline;
-    sanitized.investmentRange = data.investmentRange;
 
     // Optional fields
     sanitized.primaryInterest = data.primaryInterest || null;

@@ -72,13 +72,10 @@ export const LeadCapturePopup = () => {
         body: JSON.stringify({
           ...formData,
           // Set defaults for fields not in popup
-          industry: "Not specified",
-          companySize: "Not specified",
-          aiExperience: "Not specified",
+          industry: "not-specified",
+          aiExperience: "not-specified",
           primaryInterest: "Quick Inquiry",
           businessChallenge: "Quick inquiry from popup form",
-          timeline: "Not specified",
-          investmentRange: "Not specified",
           pageUrl: window.location.href,
           referrer: document.referrer,
           timestamp: new Date().toISOString(),
