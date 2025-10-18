@@ -13,17 +13,12 @@ CREATE TABLE IF NOT EXISTS leads (
 
     -- Business Context
     industry TEXT NOT NULL,
-    company_size TEXT NOT NULL,
 
     -- AI Specific Information
     ai_experience TEXT NOT NULL,
     primary_interest TEXT,
     business_challenge TEXT,
     ai_motivation TEXT,
-
-    -- Project Context
-    timeline TEXT NOT NULL,
-    investment_range TEXT NOT NULL,
 
     -- Metadata
     ip_address TEXT,
@@ -92,8 +87,8 @@ CREATE TABLE IF NOT EXISTS admin_users (
 CREATE INDEX IF NOT EXISTS idx_leads_email ON leads (email);
 CREATE INDEX IF NOT EXISTS idx_leads_created_at ON leads (created_at);
 CREATE INDEX IF NOT EXISTS idx_leads_status ON leads (status);
-CREATE INDEX IF NOT EXISTS idx_leads_company_size ON leads (company_size);
-CREATE INDEX IF NOT EXISTS idx_leads_investment_range ON leads (investment_range);
+CREATE INDEX IF NOT EXISTS idx_leads_industry ON leads (industry);
+CREATE INDEX IF NOT EXISTS idx_leads_ai_experience ON leads (ai_experience);
 
 CREATE INDEX IF NOT EXISTS idx_analytics_event_type ON analytics (event_type);
 CREATE INDEX IF NOT EXISTS idx_analytics_created_at ON analytics (created_at);

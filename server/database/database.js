@@ -60,10 +60,10 @@ class Database {
             const sql = `
                 INSERT INTO leads (
                     uuid, full_name, email, company_name, phone_number,
-                    industry, company_size, ai_experience, primary_interest,
-                    business_challenge, ai_motivation, timeline, investment_range,
+                    industry, ai_experience, primary_interest,
+                    business_challenge, ai_motivation,
                     ip_address, user_agent, referrer, utm_source, utm_medium, utm_campaign
-                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             `;
 
             const params = [
@@ -73,13 +73,10 @@ class Database {
                 leadData.companyName,
                 leadData.phoneNumber,
                 leadData.industry,
-                leadData.companySize,
                 leadData.aiExperience,
                 leadData.primaryInterest || null,
                 leadData.businessChallenge || null,
                 leadData.aiMotivation || null,
-                leadData.timeline,
-                leadData.investmentRange,
                 leadData.ipAddress || null,
                 leadData.userAgent || null,
                 leadData.referrer || null,
