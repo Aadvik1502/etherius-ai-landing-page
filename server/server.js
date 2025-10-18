@@ -130,10 +130,9 @@ app.post('/api/contact',
             // Track analytics event
             await database.trackEvent('contact_form_submission', {
                 leadId: result.id,
-                companySize: leadData.companySize,
                 industry: leadData.industry,
-                investmentRange: leadData.investmentRange,
-                timeline: leadData.timeline
+                aiExperience: leadData.aiExperience,
+                primaryInterest: leadData.primaryInterest
             }, {
                 ipAddress: clientIP,
                 userAgent: userAgent,
