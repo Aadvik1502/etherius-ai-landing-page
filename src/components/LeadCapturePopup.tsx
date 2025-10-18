@@ -74,7 +74,6 @@ export const LeadCapturePopup = () => {
           // Set defaults for fields not in popup
           industry: "not-specified",
           aiExperience: "not-specified",
-          primaryInterest: "Quick Inquiry",
           businessChallenge: "Quick inquiry from popup form",
           pageUrl: window.location.href,
           referrer: document.referrer,
