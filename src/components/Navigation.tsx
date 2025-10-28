@@ -53,7 +53,7 @@ export const Navigation = () => {
               className="group shadow-lg transform hover:scale-105 transition-all duration-300 h-12 bg-gradient-to-r from-neon-yellow to-green-400 text-black hover:from-neon-yellow/90 hover:to-green-400/90 flex items-center border border-neon-yellow/20 hover:border-neon-yellow/40"
               onClick={() => {
                 trackCTAClick('secondary', 'Book a Discovery Call', 'navigation-desktop');
-                window.open('https://calendly.com/etheriusai/30min', '_blank');
+                window.open('https://calendly.com/team-etheriusai/30min', '_blank');
               }}
               aria-label="Book a Discovery Call - Opens in new tab"
             >
@@ -98,7 +98,7 @@ export const Navigation = () => {
               className="group shadow-lg transform hover:scale-105 transition-all duration-300 min-h-[48px] bg-gradient-to-r from-neon-yellow to-green-400 text-black hover:from-neon-yellow/90 hover:to-green-400/90 w-full mt-4 py-3 border border-neon-yellow/20 hover:border-neon-yellow/40"
               onClick={() => {
                 trackCTAClick('secondary', 'Book a Discovery Call', 'navigation-mobile');
-                window.open('https://calendly.com/etheriusai/30min', '_blank');
+                window.open('https://calendly.com/team-etheriusai/30min', '_blank');
               }}
               aria-label="Book a Discovery Call - Opens in new tab"
             >

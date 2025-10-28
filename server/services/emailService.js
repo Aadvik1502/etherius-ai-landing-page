@@ -77,7 +77,7 @@ class EmailService {
 
                 const mailOptions = {
                     from: process.env.EMAIL_USER,
-                    to: process.env.EMAIL_TO || 'support@etheriusai.co',
+                    to: process.env.EMAIL_TO || 'team@etheriusai.co',
                     subject: subject,
                     text: textBody,
                     html: htmlBody
@@ -140,7 +140,7 @@ class EmailService {
             if (type === 'notification') {
                 emailData = {
                     from: fromEmail,
-                    to: process.env.EMAIL_TO || 'support@etheriusai.co',
+                    to: process.env.EMAIL_TO || 'team@etheriusai.co',
                     subject: `🚀 New Lead: ${leadData.fullName} from ${leadData.companyName}`,
                     html: this.generateLeadNotificationHTML(leadData),
                     text: this.generateLeadNotificationText(leadData)
@@ -330,7 +330,7 @@ Submitted: ${new Date().toLocaleString()}
 
                 <div class="footer">
                     <p>Etherius AI - Transforming AI potential into measurable business results</p>
-                    <p>Email: support@etheriusai.co | Website: etheriusai.co</p>
+                    <p>Email: team@etheriusai.co | Website: etheriusai.co</p>
                 </div>
             </div>
         </body>
@@ -363,7 +363,7 @@ The Etherius AI Team
 
 ---
 Etherius AI - Transforming AI potential into measurable business results
-Email: support@etheriusai.co | Website: etheriusai.co
+Email: team@etheriusai.co | Website: etheriusai.co
         `;
     }
 

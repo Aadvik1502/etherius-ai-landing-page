@@ -17,7 +17,7 @@ export const CalendlyWidget: React.FC<CalendlyWidgetProps> = ({
   buttonVariant = 'primary',
   buttonSize = 'lg',
   className = '',
-  calendlyUrl = 'https://calendly.com/etheriusai/30min' // Your actual Calendly URL
+  calendlyUrl = 'https://calendly.com/team-etheriusai/30min' // Your actual Calendly URL
 }) => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -107,7 +107,7 @@ interface CalendlyInlineProps {
 }
 
 export const CalendlyInline: React.FC<CalendlyInlineProps> = ({
-  calendlyUrl = 'https://calendly.com/etheriusai/30min', // Your actual Calendly URL
+  calendlyUrl = 'https://calendly.com/team-etheriusai/30min', // Your actual Calendly URL
   className = '',
   height = '700px'
 }) => {

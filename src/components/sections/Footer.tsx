@@ -1,5 +1,5 @@
 import { Separator } from "@/components/ui/separator";
-import { Linkedin } from "lucide-react";
+import { Linkedin, Mail, Phone } from "lucide-react";
 import ethLogo from "@/assets/big_ethai_logo.svg";
 
 export const Footer = () => {
@@ -18,9 +18,27 @@ export const Footer = () => {
               width="180"
               height="48"
             />
-            <p className="text-lg text-white italic">
+            <p className="text-lg text-white italic mb-6">
               Strategic AI. Real Results.
             </p>
+
+            {/* Contact Information */}
+            <div className="space-y-3">
+              <a
+                href="mailto:team@etheriusai.co"
+                className="flex items-center gap-2 text-white/80 hover:text-neon-yellow transition-colors group"
+              >
+                <Mail className="w-4 h-4 group-hover:scale-110 transition-transform" />
+                <span className="text-sm">team@etheriusai.co</span>
+              </a>
+              <a
+                href="tel:+918130474476"
+                className="flex items-center gap-2 text-white/80 hover:text-neon-yellow transition-colors group"
+              >
+                <Phone className="w-4 h-4 group-hover:scale-110 transition-transform" />
+                <span className="text-sm">+91 8130474476</span>
+              </a>
+            </div>
           </div>
 
           {/* Navigation links */}

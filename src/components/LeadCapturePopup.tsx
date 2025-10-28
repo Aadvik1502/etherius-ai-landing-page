@@ -178,7 +178,7 @@ export const LeadCapturePopup = () => {
                     value={formData.fullName}
                     onChange={(e) => handleInputChange("fullName", e.target.value)}
                     className="bg-background/50 border-border/30 focus:border-neon-yellow focus:ring-neon-yellow/20 text-white placeholder:text-white/40 h-12"
-                    placeholder="John Smith"
+                    autoComplete="off"
                     required
                   />
                 </div>
@@ -193,7 +193,7 @@ export const LeadCapturePopup = () => {
                     value={formData.email}
                     onChange={(e) => handleInputChange("email", e.target.value)}
                     className="bg-background/50 border-border/30 focus:border-neon-yellow focus:ring-neon-yellow/20 text-white placeholder:text-white/40 h-12"
-                    placeholder="john@company.com"
+                    autoComplete="off"
                     required
                   />
                 </div>
@@ -208,7 +208,7 @@ export const LeadCapturePopup = () => {
                     value={formData.phoneNumber}
                     onChange={(e) => handleInputChange("phoneNumber", e.target.value)}
                     className="bg-background/50 border-border/30 focus:border-neon-yellow focus:ring-neon-yellow/20 text-white placeholder:text-white/40 h-12"
-                    placeholder="+1 (555) 123-4567"
+                    autoComplete="off"
                     required
                   />
                 </div>
@@ -222,7 +222,7 @@ export const LeadCapturePopup = () => {
                     value={formData.companyName}
                     onChange={(e) => handleInputChange("companyName", e.target.value)}
                     className="bg-background/50 border-border/30 focus:border-neon-yellow focus:ring-neon-yellow/20 text-white placeholder:text-white/40 h-12"
-                    placeholder="Acme Inc."
+                    autoComplete="off"
                     required
                   />
                 </div>
@@ -230,7 +230,7 @@ export const LeadCapturePopup = () => {
                 {submitStatus === 'error' && (
                   <div className="p-3 bg-red-500/20 border border-red-500/40 rounded-lg">
                     <p className="text-red-400 text-sm text-center">
-                      ❌ Something went wrong. Please try again or contact us at support@etheriusai.co
+                      ❌ Something went wrong. Please try again or contact us at team@etheriusai.co
                     </p>
                   </div>
                 )}

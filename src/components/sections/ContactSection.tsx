@@ -161,7 +161,7 @@ export const ContactSection = () => {
                           value={formData.fullName}
                           onChange={(e) => handleInputChange("fullName", e.target.value)}
                           className="bg-background/50 border-border/30 focus:border-neon-yellow focus:ring-neon-yellow/20 text-white placeholder:text-white/40 h-12 md:h-12 text-base min-h-[48px]"
-                          placeholder="Enter your full name"
+                          autoComplete="off"
                           required
                         />
                       </div>
@@ -173,7 +173,7 @@ export const ContactSection = () => {
                           value={formData.email}
                           onChange={(e) => handleInputChange("email", e.target.value)}
                           className="bg-background/50 border-border/30 focus:border-neon-yellow focus:ring-neon-yellow/20 text-white placeholder:text-white/40 h-12 md:h-12 text-base min-h-[48px]"
-                          placeholder="your@email.com"
+                          autoComplete="off"
                           required
                         />
                       </div>
@@ -187,7 +187,7 @@ export const ContactSection = () => {
                           value={formData.companyName}
                           onChange={(e) => handleInputChange("companyName", e.target.value)}
                           className="bg-background/50 border-border/30 focus:border-neon-yellow focus:ring-neon-yellow/20 text-white placeholder:text-white/40 h-12 md:h-12 text-base min-h-[48px]"
-                          placeholder="Your company name"
+                          autoComplete="off"
                           required
                         />
                       </div>
@@ -199,7 +199,7 @@ export const ContactSection = () => {
                           value={formData.phoneNumber}
                           onChange={(e) => handleInputChange("phoneNumber", e.target.value)}
                           className="bg-background/50 border-border/30 focus:border-neon-yellow focus:ring-neon-yellow/20 text-white placeholder:text-white/40 h-12 md:h-12 text-base min-h-[48px]"
-                          placeholder="+1 (555) 123-4567"
+                          autoComplete="off"
                           required
                         />
                       </div>
@@ -270,6 +270,7 @@ export const ContactSection = () => {
                         onChange={(e) => handleInputChange("businessChallenge", e.target.value)}
                         placeholder="Describe any business challenges you're facing, processes you'd like to automate, or ways you're considering using AI to improve your operations..."
                         className="bg-background/50 border-border/30 focus:border-neon-yellow focus:ring-neon-yellow/20 text-white placeholder:text-white/40 min-h-[100px] text-base"
+                        autoComplete="off"
                       />
                     </div>
 
@@ -305,7 +306,7 @@ export const ContactSection = () => {
                       {submitStatus === 'error' && (
                         <div className="mt-4 p-4 bg-red-500/20 border border-red-500/40 rounded-lg">
                           <p className="text-red-400 font-medium text-center">
-                            ❌ Something went wrong. Please try again or contact us directly at support@etheriusai.co
+                            ❌ Something went wrong. Please try again or contact us directly at team@etheriusai.co
                           </p>
                         </div>
                       )}
@@ -317,11 +318,11 @@ export const ContactSection = () => {
                             Prefer to reach out directly?
                           </p>
                           <a
-                            href="mailto:support@etheriusai.co"
+                            href="mailto:team@etheriusai.co"
                             className="inline-flex items-center gap-2 text-neon-yellow hover:text-green-400 transition-colors font-medium text-lg group"
                           >
                             <Mail className="w-5 h-5 group-hover:scale-110 transition-transform" />
-                            <span>support@etheriusai.co</span>
+                            <span>team@etheriusai.co</span>
                           </a>
                           <p className="text-white/60 text-sm mt-3">
                             We typically respond within 24 hours
