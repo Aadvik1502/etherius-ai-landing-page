@@ -25,10 +25,10 @@ const featuredPosts = [
   {
     id: "3",
     title: "AI Automation vs Traditional Automation: Which Delivers Better Results?",
-    excerpt: "Compare AI-powered automation with traditional workflow automation to discover which delivers higher efficiency.",
-    date: "2025-10-05",
-    readTime: "7 min read",
-    category: "Implementation",
+    excerpt: "Compare AI automation and traditional automation with real cost breakdowns, ROI analysis, and decision framework for your business.",
+    date: "2025-10-29",
+    readTime: "9 min read",
+    category: "AI Implementation",
     slug: "ai-automation-vs-traditional-automation"
   }
 ];

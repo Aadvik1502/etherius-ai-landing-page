@@ -64,20 +64,20 @@ const blogPosts: BlogPost[] = [
   {
     id: "5",
     title: "AI Automation vs Traditional Automation: Which Delivers Better Results?",
-    excerpt: "⚡ Coming soon! The automation showdown nobody asked for but everyone needs. AI vs Traditional—which wins? Spoiler: AI dominates, but not in the ways you think. Get ready for some myth-busting.",
+    excerpt: "Compare AI automation and traditional automation with real cost breakdowns, ROI analysis, and decision framework. Learn when AI delivers 2-3x ROI, when traditional automation is smarter, and how to choose the right approach for your business.",
     author: "Aadvik Bagga, Founder",
-    date: "2025-10-05",
-    readTime: "7 min read",
-    category: "Implementation Guides",
+    date: "2025-10-29",
+    readTime: "9 min read",
+    category: "AI Implementation",
     slug: "ai-automation-vs-traditional-automation"
   },
   {
     id: "6",
     title: "7 Signs Your Business Needs an AI Strategy Consultant",
-    excerpt: "🎯 Coming soon! Think you need AI consulting? These 7 signs will tell you if you're actually ready—or just following the hype. (Hint: If you're googling 'do I need AI,' you might already know the answer.)",
+    excerpt: "Discover the 7 clear indicators that your business needs AI consulting expertise. Learn when to hire an AI strategy consultant, avoid $400K-800K in wasted exploration, and make strategic decisions based on real competitive intelligence and ROI modeling.",
     author: "Aadvik Bagga, Founder",
-    date: "2025-10-04",
-    readTime: "6 min read",
+    date: "2025-10-29",
+    readTime: "10 min read",
     category: "AI Strategy & Planning",
     slug: "business-needs-ai-strategy-consultant"
   }
